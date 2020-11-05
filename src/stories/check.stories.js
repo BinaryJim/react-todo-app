@@ -5,7 +5,7 @@ import "../styles/index.scss";
 const config = {
   title: "Components/Check",
   component: Check,
-  argTypes: { onChange: { action: "clicked" } },
+  argTypes: { onChange: { action: "changed" } },
 };
 
 const Template = (args) => <Check {...args} />;
