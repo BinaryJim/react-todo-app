@@ -16,7 +16,6 @@
     height: rem-calc(24);
     border-radius: 50%;
     border: rem-calc(1) solid $grey-lighten-1;
-    background-color: $white;
     cursor: pointer;
     transition: all $transition;
   }
@@ -24,8 +23,12 @@
   // Faux indicator - Checked styles
   &__input:checked + &__indicator {
     background-color: $primary-color;
-    box-shadow: inset 0 0 0 rem-calc(3) $white;
+    box-shadow: inset 0 0 0 rem-calc(3) $body-background-color-lt;
     border-color: $primary-color;
+
+    @media (prefers-color-scheme: dark) {
+      box-shadow: inset 0 0 0 rem-calc(3) $body-background-color-dt;
+    }
   }
 
   // Faux indicator - Disabled styles
