@@ -1,0 +1,13 @@
+// Strip unit from number
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+// Calculate rem from supplied px size
+@function rem-calc($size) {
+  $remSize: strip-unit($size) / 16;
+  @return #{$remSize}rem;
+}

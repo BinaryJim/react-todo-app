@@ -1,0 +1,80 @@
+// Color palette
+$blue: #254fa2;
+$red: #e94560;
+$black: #000;
+$white: #fff;
+$grey: mix(#fff, #000, 50%);
+
+$blue-darken-5: mix(#000, $blue, 90%);
+$blue-darken-4: mix(#000, $blue, 80%);
+$blue-darken-3: mix(#000, $blue, 60%);
+$blue-darken-2: mix(#000, $blue, 40%);
+$blue-darken-1: mix(#000, $blue, 20%);
+$blue-lighten-1: mix(#fff, $blue, 20%);
+$blue-lighten-2: mix(#fff, $blue, 40%);
+$blue-lighten-3: mix(#fff, $blue, 60%);
+$blue-lighten-4: mix(#fff, $blue, 80%);
+$blue-lighten-5: mix(#fff, $blue, 90%);
+
+$red-darken-5: mix(#000, $red, 90%);
+$red-darken-4: mix(#000, $red, 80%);
+$red-darken-3: mix(#000, $red, 60%);
+$red-darken-2: mix(#000, $red, 40%);
+$red-darken-1: mix(#000, $red, 20%);
+$red-lighten-1: mix(#fff, $red, 20%);
+$red-lighten-2: mix(#fff, $red, 40%);
+$red-lighten-3: mix(#fff, $red, 60%);
+$red-lighten-4: mix(#fff, $red, 80%);
+$red-lighten-5: mix(#fff, $red, 90%);
+
+$grey-darken-5: mix(#000, $grey, 90%);
+$grey-darken-4: mix(#000, $grey, 80%);
+$grey-darken-3: mix(#000, $grey, 60%);
+$grey-darken-2: mix(#000, $grey, 40%);
+$grey-darken-1: mix(#000, $grey, 20%);
+$grey-lighten-1: mix(#fff, $grey, 20%);
+$grey-lighten-2: mix(#fff, $grey, 40%);
+$grey-lighten-3: mix(#fff, $grey, 60%);
+$grey-lighten-4: mix(#fff, $grey, 80%);
+$grey-lighten-5: mix(#fff, $grey, 90%);
+
+// Theme colors
+$primary-color: $blue;
+
+// Breakpoints
+$breakpoints: (
+  "sm": 0,
+  "md": 640,
+  "lg": 1024,
+  "xl": 1200,
+);
+
+// Spacing and alignment
+$max-page-width: 1200;
+$grid-columns: 12;
+$column-width: percentage(100 / $grid-columns) / 100;
+$gap: 16px;
+
+// Body
+$body-background-color-lt: $white;
+$body-background-color-dt: $grey-darken-4;
+
+// Typography
+$font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
+  Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+$font-size: 16px;
+$line-height: 1.7;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$font-color-dt: $grey-lighten-4;
+$font-color-lt: $grey-darken-3;
+$font-color-alt: $grey-lighten-1;
+
+// Links
+$link-color: $blue-lighten-1;
+
+// Radius
+$radius: 4px;
+
+// Transitions
+$transition: 0.2s ease-in-out;
