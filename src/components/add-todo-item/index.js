@@ -1,2 +1,1 @@
-export { Check } from "./check";
 export { AddTodoItem } from "./add-todo-item";
