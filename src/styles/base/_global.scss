@@ -1,0 +1,21 @@
+// Root elements
+html {
+  font-size: 16px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  @media (prefers-color-scheme: dark) {
+    background-color: $body-background-color-dt;
+  }
+}
+
+body {
+  font-size: rem-calc($font-size);
+  font-family: $font-family;
+  font-weight: $font-weight-normal;
+  color: $font-color-lt;
+  line-height: $line-height;
+  @media (prefers-color-scheme: dark) {
+    color: $font-color-dt;
+  }
+}
