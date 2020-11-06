@@ -26,12 +26,13 @@
     color: $font-color-lt;
     font-size: rem-calc(14);
     flex: 1 1 auto;
-    padding: 0 rem-calc($gap) 0 0;
+    padding: 0 rem-calc($gap/ 2) 0 0;
     line-height: normal;
     height: rem-calc($gap * 2);
 
     @include breakpoint(lg) {
       font-size: rem-calc($font-size);
+      padding-right: rem-calc($gap);
     }
 
     @media (prefers-color-scheme: dark) {
@@ -53,8 +54,8 @@
     transition: background-color $transition;
 
     // Hover and focus styles
-    &:hover,
-    &:focus {
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
       background-color: mix(#000, $primary-color, 10%);
     }
 
