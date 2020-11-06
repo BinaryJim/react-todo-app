@@ -1,13 +1,25 @@
 import React from "react";
+import { action } from "@storybook/addon-actions";
 import { FullWidthDecorator } from "../../.storybook/decorators/full-width-decorator";
+import { TodoAppDispatchContext } from "../store/todo-app-context";
 import { AddTodoItem } from "../components";
 import "../styles/index.scss";
 
 const config = {
   title: "Components/Add Todo Item",
   component: AddTodoItem,
-  decorators: [FullWidthDecorator],
-  argTypes: { onClick: { action: "clicked" } },
+  decorators: [
+    FullWidthDecorator,
+    (story) => (
+      <TodoAppDispatchContext.Provider
+        value={{
+          addTodo: action("Dispatch: AddTodo"),
+        }}
+      >
+        {story()}
+      </TodoAppDispatchContext.Provider>
+    ),
+  ],
 };
 
 const Template = (args) => <AddTodoItem {...args} />;
