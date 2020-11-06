@@ -23,4 +23,15 @@ const AddTodoItem = () => {
   );
 };
 
+AddTodoItem.propTypes = {
+  /**
+   Allows the passing of additional CSS class names to the component root node 
+  */
+  classes: PropTypes.string,
+  /**
+   Allows the passing of a unique data-testid to the component root node. Used for testing purposes
+  */
+  testId: PropTypes.string,
+};
+
 export { AddTodoItem };
