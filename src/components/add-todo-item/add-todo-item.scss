@@ -1,0 +1,68 @@
+@import "../../styles/util/_all";
+
+.add-todo-item {
+  // Main container
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: rem-calc($gap / 2);
+  background-color: $grey-lighten-5;
+  overflow: hidden;
+
+  @include breakpoint(lg) {
+    border-radius: $radius;
+    padding: rem-calc($gap);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $grey-darken-5;
+  }
+
+  // Input
+  &__input {
+    outline: none;
+    border: none;
+    background: transparent;
+    color: $font-color-lt;
+    font-size: rem-calc(14);
+    flex: 1 1 auto;
+    padding: 0 rem-calc($gap/ 2) 0 0;
+    line-height: normal;
+    height: rem-calc($gap * 2);
+
+    @include breakpoint(lg) {
+      font-size: rem-calc($font-size);
+      padding-right: rem-calc($gap);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      color: $font-color-dt;
+    }
+  }
+
+  // Submit button
+  &__submit {
+    border: 0;
+    outline: 0;
+    background-color: $primary-color;
+    color: $white;
+    width: rem-calc($gap * 2);
+    height: rem-calc($gap * 2);
+    border-radius: $radius;
+    cursor: pointer;
+    font-size: rem-calc(14);
+    transition: background-color $transition;
+
+    // Hover and focus styles
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
+      background-color: mix(#000, $primary-color, 10%);
+    }
+
+    // Disabled styles
+    &:disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+}
