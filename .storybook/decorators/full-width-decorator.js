@@ -1,14 +1,9 @@
 import React from "react";
+import "./full-width-decorator.css";
 
 export const FullWidthDecorator = (Story) => {
   return (
-    <div
-      style={{
-        width: "calc(100vw - 32px)",
-        maxWidth: "1200px",
-        minHeight: "1px",
-      }}
-    >
+    <div className="full-width-decorator">
       <Story />
     </div>
   );
