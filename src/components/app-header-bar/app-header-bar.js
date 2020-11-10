@@ -5,7 +5,7 @@ import { useTodoAppStateContext } from "../../store/todo-app-context";
 import "./app-header-bar.scss";
 
 const AppHeaderBar = ({ classes, testId }) => {
-  const { todos = [] } = useTodoAppStateContext();
+  const { todos } = useTodoAppStateContext();
   const todoCount = todos.length <= 100 ? todos.length : "100+";
 
   return (
