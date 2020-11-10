@@ -15,7 +15,12 @@ const AppHeaderBar = ({ classes, testId }) => {
     >
       <div className="app-header-bar__content">
         <h1 className="app-header-bar__content__title">Todos</h1>
-        <span className="app-header-bar__content__todo-count">{todoCount}</span>
+        <span
+          aria-label="Active todo count"
+          className="app-header-bar__content__todo-count"
+        >
+          {todoCount}
+        </span>
       </div>
     </header>
   );
