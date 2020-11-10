@@ -40,6 +40,20 @@ WithLessThanMaxThresholdTodos.decorators = [
   ),
 ];
 
+const WithEqualToMaxThresholdTodos = Template.bind({});
+WithEqualToMaxThresholdTodos.args = {};
+WithEqualToMaxThresholdTodos.decorators = [
+  (story) => (
+    <TodoAppStateContext.Provider
+      value={{
+        todos: [...Array(100).keys()],
+      }}
+    >
+      {story()}
+    </TodoAppStateContext.Provider>
+  ),
+];
+
 const WithGreaterThanMaxThresholdTodos = Template.bind({});
 WithGreaterThanMaxThresholdTodos.args = {};
 WithGreaterThanMaxThresholdTodos.decorators = [
@@ -57,6 +71,7 @@ WithGreaterThanMaxThresholdTodos.decorators = [
 export {
   WithZeroTodos,
   WithLessThanMaxThresholdTodos,
+  WithEqualToMaxThresholdTodos,
   WithGreaterThanMaxThresholdTodos,
 };
 export default config;
