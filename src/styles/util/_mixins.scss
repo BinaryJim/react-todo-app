@@ -9,15 +9,13 @@
 
 // Grid container
 @mixin gridContainer() {
-  width: 100%;
-  max-width: $max-page-width;
-  margin-left: auto;
-  margin-right: auto;
+  display: grid;
+  grid-template-columns: minmax(auto, 1200px);
+  justify-content: center;
   padding-left: rem-calc($gap);
   padding-right: rem-calc($gap);
+}
 
-  @include breakpoint("md") {
-    padding-left: rem-calc($gap * 2);
-    padding-right: rem-calc($gap * 2);
-  }
+.grid-container {
+  @include gridContainer();
 }

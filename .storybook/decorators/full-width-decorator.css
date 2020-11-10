@@ -1,6 +1,6 @@
 .full-width-decorator {
   width: calc(100vw - 32px);
-  max-width: 1200px;
+  max-width: 1600px;
 }
 
 .sbdocs .full-width-decorator {

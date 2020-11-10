@@ -1,0 +1,28 @@
+@import "../../styles/util/_all";
+
+.app-header-bar {
+  background-color: $primary-color;
+  color: $white;
+  padding: $gap;
+
+  // Inner wrap
+  &__content {
+    display: grid;
+    column-gap: $gap;
+    align-items: center;
+    grid-template-columns: repeat(2, auto);
+  }
+
+  // App title
+  &__content__title {
+    margin: 0;
+    font-size: rem-calc(20);
+    line-height: normal;
+  }
+
+  // Todo count
+  &__content__todo-count {
+    font-weight: $font-weight-bold;
+    justify-self: end;
+  }
+}

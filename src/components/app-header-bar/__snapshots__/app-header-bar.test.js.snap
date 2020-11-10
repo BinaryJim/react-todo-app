@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppHeaderBar - test render should match snapshot 1`] = `
+<DocumentFragment>
+  <header
+    class="app-header-bar grid-container"
+  >
+    <div
+      class="app-header-bar__content"
+    >
+      <h1
+        class="app-header-bar__content__title"
+      >
+        Todos
+      </h1>
+      <span
+        aria-label="Active todo count"
+        class="app-header-bar__content__todo-count"
+      >
+        0
+      </span>
+    </div>
+  </header>
+</DocumentFragment>
+`;
