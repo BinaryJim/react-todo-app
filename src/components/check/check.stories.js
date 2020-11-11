@@ -1,6 +1,6 @@
 import React from "react";
-import { Check } from "../components";
-import "../styles/index.scss";
+import { Check } from "./check";
+import "../../styles/index.scss";
 
 const config = {
   title: "Components/Check",
