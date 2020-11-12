@@ -1,0 +1,69 @@
+@import "../../styles/util/_all";
+
+.todo-item {
+  $bem-base: &;
+
+  display: flex;
+  align-items: center;
+  padding: rem-calc($gap - 1) 0;
+  border-top: rem-calc(1) solid $grey-lighten-3;
+  border-bottom: rem-calc(1) solid $grey-lighten-3;
+  min-height: rem-calc(64);
+
+  @media (prefers-color-scheme: dark) {
+    border-color: $grey-darken-3;
+  }
+
+  // Todo done indicator
+  &__done-indicator {
+    margin-right: rem-calc($gap);
+    flex: 0 0 auto;
+  }
+
+  // Todo description
+  &__description {
+    margin: 0;
+    line-height: 1.5;
+    flex: 1 1 auto;
+
+    // Done state
+    #{$bem-base}--is-done & {
+      color: $grey-lighten-2;
+      text-decoration: line-through;
+
+      @media (prefers-color-scheme: dark) {
+        color: $grey-lighten-1;
+      }
+    }
+  }
+
+  // Pinned indicator
+  &__pin {
+    flex: 0 0 auto;
+    border: 0;
+    padding: 0;
+    width: rem-calc($gap * 2);
+    height: rem-calc($gap * 2);
+    margin-left: rem-calc($gap / 2);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // Checkbox input
+    &__input {
+      display: none;
+    }
+
+    // Icon
+    &__icon {
+      color: $grey-lighten-3;
+      transition: color $transition;
+    }
+
+    // Pinned state
+    &__input:checked + &__icon {
+      color: #d2ce2f;
+    }
+  }
+}

@@ -19,7 +19,7 @@ const Check = ({
         disabled={disabled}
         checked={checked}
         onChange={onChange}
-        aria-label="checkbox"
+        aria-label={label}
       />
       <span className="check__indicator"></span>
     </label>

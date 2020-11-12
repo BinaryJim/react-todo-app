@@ -93,3 +93,22 @@ describe("Check - with custom class names", () => {
     expect(screen.getByTestId("check-label")).toHaveClass("test-class");
   });
 });
+
+describe("Check with accesability label", () => {
+  beforeEach(() => {
+    render(
+      <Check
+        classes="test-class"
+        label="Test checkbox label"
+        onChange={() => {}}
+      />
+    );
+  });
+
+  it("Should output an aria-label equal to the value of the label prop on the checkbox element", () => {
+    expect(screen.getByRole("checkbox")).toHaveAttribute(
+      "aria-label",
+      expect.stringMatching("Test checkbox label")
+    );
+  });
+});
