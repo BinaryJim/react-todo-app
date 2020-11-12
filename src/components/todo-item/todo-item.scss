@@ -45,18 +45,24 @@
     width: rem-calc($gap * 2);
     height: rem-calc($gap * 2);
     margin-left: rem-calc($gap / 2);
-    background: none;
     cursor: pointer;
-    color: $grey-lighten-3;
-    transition: color $transition;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    &:focus,
-    &:hover {
-      outline: 0;
+    // Checkbox input
+    &__input {
+      display: none;
+    }
+
+    // Icon
+    &__icon {
+      color: $grey-lighten-3;
+      transition: color $transition;
     }
 
     // Pinned state
-    #{$bem-base}--is-pinned & {
+    &__input:checked + &__icon {
       color: #d2ce2f;
     }
   }

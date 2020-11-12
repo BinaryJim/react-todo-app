@@ -11,13 +11,12 @@ const TodoItem = ({
   pinned,
   description,
   onDoneChange,
-  onStarChange,
+  onPinnedChange,
   classes,
   testId,
 }) => {
-  const rootClassNames = cn("todo-item", {
+  const rootClassNames = cn("todo-item", classes, {
     "todo-item--is-done": done,
-    "todo-item--is-pinned": pinned,
   });
 
   return (
@@ -28,11 +27,20 @@ const TodoItem = ({
         checked={done}
         onChange={onDoneChange}
       />
-      <p className="todo-item__description">{description}</p>
+      <p className="todo-item__description" aria-label="Todo description">
+        {description}
+      </p>
       {!done && (
-        <button className="todo-item__pin" onClick={onStarChange}>
+        <label className="todo-item__pin">
+          <input
+            className="todo-item__pin__input"
+            type="checkbox"
+            checked={pinned}
+            onChange={onPinnedChange}
+            aria-label="Pinned status"
+          />
           <FontAwesomeIcon icon={faStar} className="todo-item__pin__icon" />
-        </button>
+        </label>
       )}
     </div>
   );
@@ -56,9 +64,9 @@ TodoItem.propTypes = {
   */
   onDoneChange: PropTypes.func.isRequired,
   /**
-   Callback function for when a user changes the stared status of the todo item 
+   Callback function for when a user changes the pinned status of the todo item 
   */
-  onStarChange: PropTypes.func.isRequired,
+  onPinnedChange: PropTypes.func.isRequired,
   /**
    Allows the passing of additional CSS class names to the component root node 
   */

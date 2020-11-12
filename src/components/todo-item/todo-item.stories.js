@@ -15,7 +15,7 @@ const WithTodoOutstanding = Template.bind({});
 WithTodoOutstanding.args = {
   id: 0,
   onDoneChange: action("Todo done status changed"),
-  onStarChange: action("Todo stared status changed"),
+  onPinnedChange: action("Todo pinned status changed"),
   description: "Test todo item description",
   pinned: false,
   done: false,
