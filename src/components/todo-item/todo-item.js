@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import cn from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { Check } from "../check";
 import "./todo-item.scss";
 
 const TodoItem = ({
@@ -21,12 +20,16 @@ const TodoItem = ({
 
   return (
     <div className={rootClassNames} data-testid={testId}>
-      <Check
-        classes="todo-item__done-indicator"
-        label="Todo status"
-        checked={done}
-        onChange={onDoneChange}
-      />
+      <label className="todo-item__status">
+        <input
+          className="todo-item__status__input"
+          type="checkbox"
+          checked={done}
+          onChange={onDoneChange}
+          aria-label="Todo status"
+        />
+        <span className="todo-item__status__indicator"></span>
+      </label>
       <p className="todo-item__description" aria-label="Todo description">
         {description}
       </p>
@@ -39,7 +42,10 @@ const TodoItem = ({
             onChange={onPinnedChange}
             aria-label="Pinned status"
           />
-          <FontAwesomeIcon icon={faStar} className="todo-item__pin__icon" />
+          <FontAwesomeIcon
+            icon={faStar}
+            className="todo-item__pin__indicator"
+          />
         </label>
       )}
     </div>
