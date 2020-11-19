@@ -4,6 +4,7 @@
   background-color: $primary-color;
   color: $white;
   padding: $gap;
+  min-height: rem-calc(64);
 
   // Inner wrap
   &__content {
