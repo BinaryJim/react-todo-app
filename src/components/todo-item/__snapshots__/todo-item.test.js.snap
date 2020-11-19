@@ -7,15 +7,15 @@ exports[`TodoItem - test render should match snapshot 1`] = `
     data-testid="Test todo item"
   >
     <label
-      class="check todo-item__done-indicator"
+      class="todo-item__status"
     >
       <input
         aria-label="Todo status"
-        class="check__input"
+        class="todo-item__status__input"
         type="checkbox"
       />
       <span
-        class="check__indicator"
+        class="todo-item__status__indicator"
       />
     </label>
     <p
@@ -34,7 +34,7 @@ exports[`TodoItem - test render should match snapshot 1`] = `
       />
       <svg
         aria-hidden="true"
-        class="svg-inline--fa fa-star fa-w-18 todo-item__pin__icon"
+        class="svg-inline--fa fa-star fa-w-18 todo-item__pin__indicator"
         data-icon="star"
         data-prefix="fas"
         focusable="false"

@@ -14,10 +14,44 @@
     border-color: $grey-darken-3;
   }
 
-  // Todo done indicator
-  &__done-indicator {
+  // Todo status
+  &__status {
     margin-right: rem-calc($gap);
     flex: 0 0 auto;
+    line-height: 0;
+
+    // Native checkbox input
+    &__input {
+      display: none;
+    }
+
+    // Faux indicator - base styles
+    &__indicator {
+      display: inline-block;
+      width: rem-calc(24);
+      height: rem-calc(24);
+      border-radius: 50%;
+      border: rem-calc(1) solid $grey-lighten-1;
+      cursor: pointer;
+      transition: all $transition;
+    }
+
+    // Faux indicator - Checked styles
+    &__input:checked + &__indicator {
+      background-color: $primary-color;
+      box-shadow: inset 0 0 0 rem-calc(3) $body-background-color-lt;
+      border-color: $primary-color;
+
+      @media (prefers-color-scheme: dark) {
+        box-shadow: inset 0 0 0 rem-calc(3) $body-background-color-dt;
+      }
+    }
+
+    // Faux indicator - Disabled styles
+    &__input:disabled + &__indicator {
+      opacity: 0.5;
+      pointer-events: none;
+    }
   }
 
   // Todo description
@@ -55,14 +89,14 @@
       display: none;
     }
 
-    // Icon
-    &__icon {
+    // Pinned indicator - base styles
+    &__indicator {
       color: $grey-lighten-3;
       transition: color $transition;
     }
 
-    // Pinned state
-    &__input:checked + &__icon {
+    // Pinned indicator - pinned styles
+    &__input:checked + &__indicator {
       color: #d2ce2f;
     }
   }
