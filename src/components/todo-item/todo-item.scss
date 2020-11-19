@@ -6,12 +6,18 @@
   display: flex;
   align-items: center;
   padding: rem-calc($gap - 1) 0;
-  border-top: rem-calc(1) solid $grey-lighten-3;
   border-bottom: rem-calc(1) solid $grey-lighten-3;
   min-height: rem-calc(64);
 
+  &:first-of-type {
+    border-top: rem-calc(1) solid $grey-lighten-3;
+  }
+
   @media (prefers-color-scheme: dark) {
-    border-color: $grey-darken-3;
+    &,
+    &:first-of-type {
+      border-color: $grey-darken-3;
+    }
   }
 
   // Todo status
