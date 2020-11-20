@@ -1,24 +1,8 @@
-import React from "react";
+import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
 import { useTodoAppStore } from "../../store/todo-app-store";
 import { TodoItem } from "../todo-item";
-
-const useProcessedTodos = (filter, todos) => {
-  if (!todos.length) {
-    return todos;
-  }
-
-  if (filter === "DONE") return [...todos.filter((todo) => todo.done)];
-
-  const orderedTodos = [
-    ...todos.filter((todo) => todo.pinned),
-    ...todos.filter((todo) => !todo.pinned),
-  ];
-
-  if (filter === "ALL") return orderedTodos;
-  if (filter === "OPEN") return orderedTodos.filter((todo) => !todo.done);
-};
 
 const TodoItems = ({ classes, testId }) => {
   const {
@@ -26,11 +10,27 @@ const TodoItems = ({ classes, testId }) => {
     actions: { toggleTaskStatus, toggleTaskPin },
   } = useTodoAppStore();
 
-  const todoItems = useProcessedTodos(state.filter, state.todos);
+  const processTodos = useMemo(() => {
+    if (!state.todos.length) {
+      return state.todos;
+    }
+
+    if (state.filter === "DONE")
+      return [...state.todos.filter((todo) => todo.done)];
+
+    const orderedTodos = [
+      ...state.todos.filter((todo) => todo.pinned),
+      ...state.todos.filter((todo) => !todo.pinned),
+    ];
+
+    if (state.filter === "ALL") return orderedTodos;
+    if (state.filter === "OPEN")
+      return orderedTodos.filter((todo) => !todo.done);
+  }, [state.filter, state.todos]);
 
   return (
     <div className={cn("todo-items", classes)} data-testid={testId}>
-      {todoItems.map((todo) => (
+      {processTodos.map((todo) => (
         <TodoItem
           key={todo.id}
           id={todo.id}
