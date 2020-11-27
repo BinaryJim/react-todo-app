@@ -106,4 +106,26 @@
       color: #d2ce2f;
     }
   }
+
+  // Remove todo item button
+  &__remove {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: rem-calc($gap * 2);
+    height: rem-calc($gap * 2);
+    margin-left: rem-calc($gap / 2);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    color: $red;
+
+    &:active,
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
 }

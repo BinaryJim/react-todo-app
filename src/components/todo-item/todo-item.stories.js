@@ -16,6 +16,7 @@ WithTodoOutstanding.args = {
   id: 0,
   onDoneChange: action("Todo done status changed"),
   onPinnedChange: action("Todo pinned status changed"),
+  onRemoveTodoClick: action("Todo item delete button clicked"),
   description: "Test todo item description",
   pinned: false,
   done: false,

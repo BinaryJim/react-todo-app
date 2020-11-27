@@ -7,7 +7,7 @@ import { TodoItem } from "../todo-item";
 const TodoItems = ({ classes, testId }) => {
   const {
     state,
-    actions: { toggleTaskStatus, toggleTaskPin },
+    actions: { toggleTaskStatus, toggleTaskPin, removeTodo },
   } = useTodoAppStore();
 
   const processTodos = useMemo(() => {
@@ -36,6 +36,7 @@ const TodoItems = ({ classes, testId }) => {
           id={todo.id}
           onDoneChange={() => toggleTaskStatus(todo.id)}
           onPinnedChange={() => toggleTaskPin(todo.id)}
+          onRemoveTodoClick={() => removeTodo(todo.id)}
           description={todo.description}
           pinned={todo.pinned}
           done={todo.done}

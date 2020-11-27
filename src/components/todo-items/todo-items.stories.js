@@ -51,6 +51,7 @@ const state = {
 const actions = {
   toggleTaskStatus: action("Task status toggled"),
   toggleTaskPin: action("Task pinned toggled"),
+  removeTodo: action("Todo item removed"),
 };
 
 const WithAllTodosFilter = Template.bind({});

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./todo-item.scss";
 
 const TodoItem = ({
@@ -11,6 +11,7 @@ const TodoItem = ({
   description,
   onDoneChange,
   onPinnedChange,
+  onRemoveTodoClick,
   classes,
   testId,
 }) => {
@@ -48,6 +49,13 @@ const TodoItem = ({
           />
         </label>
       )}
+      <button
+        className="todo-item__remove"
+        aria-label="Remove todo"
+        onClick={onRemoveTodoClick}
+      >
+        <FontAwesomeIcon icon={faTrash} />
+      </button>
     </div>
   );
 };
@@ -73,6 +81,10 @@ TodoItem.propTypes = {
    Callback function for when a user changes the pinned status of the todo item 
   */
   onPinnedChange: PropTypes.func.isRequired,
+  /**
+   Callback function for when a user clicks on the delete todo item button
+  */
+  onRemoveTodoClick: PropTypes.func.isRequired,
   /**
    Allows the passing of additional CSS class names to the component root node 
   */

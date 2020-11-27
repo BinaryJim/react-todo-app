@@ -43,6 +43,7 @@ const state = {
 const actions = {
   toggleTaskStatus: jest.fn(),
   toggleTaskPin: jest.fn(),
+  removeTodo: jest.fn(),
 };
 
 const MockProvider = ({ children, state, actions }) => {
@@ -168,6 +169,11 @@ describe("TodoItems - User actions", () => {
   it("should allow a user to toggle the status of a specific todo pin", () => {
     userEvent.click(screen.getAllByLabelText("Pinned status")[0]);
     expect(actions.toggleTaskPin).toHaveBeenCalledWith(2);
+  });
+
+  it("should allow a user to delete a specific todo", () => {
+    userEvent.click(screen.getAllByLabelText("Remove todo")[0]);
+    expect(actions.removeTodo).toHaveBeenCalledWith(2);
   });
 });
 

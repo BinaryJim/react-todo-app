@@ -12,6 +12,7 @@ describe("TodoItem - test render", () => {
         description="Test todo item description"
         onDoneChange={() => {}}
         onPinnedChange={() => {}}
+        onRemoveTodoClick={() => {}}
         testId="Test todo item"
       />
     );
@@ -23,6 +24,7 @@ describe("TodoItem - test render", () => {
 describe("TodoItem - incomplete, non pinned todo item", () => {
   const onTodoStatusChange = jest.fn();
   const onTodoPinnedStatusChange = jest.fn();
+  const handleOnRemoveTodoClick = jest.fn();
 
   beforeEach(() => {
     render(
@@ -32,6 +34,7 @@ describe("TodoItem - incomplete, non pinned todo item", () => {
         description="Test todo item description"
         onDoneChange={onTodoStatusChange}
         onPinnedChange={onTodoPinnedStatusChange}
+        onRemoveTodoClick={handleOnRemoveTodoClick}
         testId="Test todo item"
       />
     );
@@ -63,11 +66,17 @@ describe("TodoItem - incomplete, non pinned todo item", () => {
     userEvent.click(screen.getByLabelText("Pinned status"));
     expect(onTodoPinnedStatusChange).toHaveBeenCalledTimes(1);
   });
+
+  it("should fire the appropriate callback function on click of the remove todo button", () => {
+    userEvent.click(screen.getByLabelText("Remove todo"));
+    expect(handleOnRemoveTodoClick).toHaveBeenCalledTimes(1);
+  });
 });
 
 describe("TodoItem - incomplete, pinned todo item", () => {
   const onTodoStatusChange = jest.fn();
   const onTodoPinnedStatusChange = jest.fn();
+  const handleOnRemoveTodoClick = jest.fn();
 
   beforeEach(() => {
     render(
@@ -77,6 +86,7 @@ describe("TodoItem - incomplete, pinned todo item", () => {
         description="Test todo item description"
         onDoneChange={onTodoStatusChange}
         onPinnedChange={onTodoPinnedStatusChange}
+        onRemoveTodoClick={handleOnRemoveTodoClick}
         testId="Test todo item"
       />
     );
@@ -108,11 +118,17 @@ describe("TodoItem - incomplete, pinned todo item", () => {
     userEvent.click(screen.getByLabelText("Pinned status"));
     expect(onTodoPinnedStatusChange).toHaveBeenCalledTimes(1);
   });
+
+  it("should fire the appropriate callback function on click of the remove todo button", () => {
+    userEvent.click(screen.getByLabelText("Remove todo"));
+    expect(handleOnRemoveTodoClick).toHaveBeenCalledTimes(1);
+  });
 });
 
 describe("TodoItem - complete todo item", () => {
   const onTodoStatusChange = jest.fn();
   const onTodoPinnedStatusChange = jest.fn();
+  const handleOnRemoveTodoClick = jest.fn();
 
   beforeEach(() => {
     render(
@@ -122,6 +138,7 @@ describe("TodoItem - complete todo item", () => {
         description="Test todo item description"
         onDoneChange={onTodoStatusChange}
         onPinnedChange={onTodoPinnedStatusChange}
+        onRemoveTodoClick={handleOnRemoveTodoClick}
         testId="Test todo item"
       />
     );
@@ -148,6 +165,11 @@ describe("TodoItem - complete todo item", () => {
     userEvent.click(screen.getByLabelText("Todo status"));
     expect(onTodoStatusChange).toHaveBeenCalledTimes(1);
   });
+
+  it("should fire the appropriate callback function on click of the remove todo button", () => {
+    userEvent.click(screen.getByLabelText("Remove todo"));
+    expect(handleOnRemoveTodoClick).toHaveBeenCalledTimes(1);
+  });
 });
 
 describe("TodoItem - with custom class names", () => {
@@ -159,6 +181,7 @@ describe("TodoItem - with custom class names", () => {
         description="Test todo item description"
         onDoneChange={() => {}}
         onPinnedChange={() => {}}
+        onRemoveTodoClick={() => {}}
         classes="test-class"
         testId="Test todo item"
       />

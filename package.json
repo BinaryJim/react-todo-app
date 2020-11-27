@@ -56,5 +56,12 @@
     "last 2 FirefoxAndroid major versions",
     "last 2 iOS major versions",
     "not IE > 0"
-  ]
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/*.stories.{js,jsx}",
+      "!**/node_modules/**"
+    ]
+  }
 }
