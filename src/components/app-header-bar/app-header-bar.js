@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
-import { useTodoAppStateContext } from "../../store/todo-app-context";
+import { useTodoAppStore } from "../../store/todo-app-store";
 import "./app-header-bar.scss";
 
 const AppHeaderBar = ({ classes, testId }) => {
-  const { todos } = useTodoAppStateContext();
+  const {
+    state: { todos },
+  } = useTodoAppStore();
   const todoCount = todos.length <= 100 ? todos.length : "100+";
 
   return (

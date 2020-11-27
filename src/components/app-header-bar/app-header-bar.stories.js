@@ -1,6 +1,6 @@
 import React from "react";
 import { FullWidthDecorator } from "../../../.storybook/decorators/full-width-decorator";
-import { TodoAppStateContext } from "../../store/todo-app-context";
+import { TodoAppStore } from "../../store/todo-app-store";
 import { AppHeaderBar } from "./app-header-bar";
 import "../../styles/index.scss";
 
@@ -16,13 +16,15 @@ const WithZeroTodos = Template.bind({});
 WithZeroTodos.args = {};
 WithZeroTodos.decorators = [
   (Story) => (
-    <TodoAppStateContext.Provider
+    <TodoAppStore.Provider
       value={{
-        todos: [],
+        state: {
+          todos: [],
+        },
       }}
     >
       <Story />
-    </TodoAppStateContext.Provider>
+    </TodoAppStore.Provider>
   ),
 ];
 
@@ -30,13 +32,15 @@ const WithLessThanMaxThresholdTodos = Template.bind({});
 WithLessThanMaxThresholdTodos.args = {};
 WithLessThanMaxThresholdTodos.decorators = [
   (story) => (
-    <TodoAppStateContext.Provider
+    <TodoAppStore.Provider
       value={{
-        todos: [...Array(99).keys()],
+        state: {
+          todos: [...Array(99).keys()],
+        },
       }}
     >
       {story()}
-    </TodoAppStateContext.Provider>
+    </TodoAppStore.Provider>
   ),
 ];
 
@@ -44,13 +48,15 @@ const WithEqualToMaxThresholdTodos = Template.bind({});
 WithEqualToMaxThresholdTodos.args = {};
 WithEqualToMaxThresholdTodos.decorators = [
   (story) => (
-    <TodoAppStateContext.Provider
+    <TodoAppStore.Provider
       value={{
-        todos: [...Array(100).keys()],
+        state: {
+          todos: [...Array(100).keys()],
+        },
       }}
     >
       {story()}
-    </TodoAppStateContext.Provider>
+    </TodoAppStore.Provider>
   ),
 ];
 
@@ -58,13 +64,15 @@ const WithGreaterThanMaxThresholdTodos = Template.bind({});
 WithGreaterThanMaxThresholdTodos.args = {};
 WithGreaterThanMaxThresholdTodos.decorators = [
   (story) => (
-    <TodoAppStateContext.Provider
+    <TodoAppStore.Provider
       value={{
-        todos: [...Array(101).keys()],
+        state: {
+          todos: [...Array(101).keys()],
+        },
       }}
     >
       {story()}
-    </TodoAppStateContext.Provider>
+    </TodoAppStore.Provider>
   ),
 ];
 

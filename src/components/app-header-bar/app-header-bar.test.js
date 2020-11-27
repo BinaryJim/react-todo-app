@@ -1,17 +1,19 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { TodoAppStateContext } from "../../store/todo-app-context";
+import { TodoAppStore } from "../../store/todo-app-store";
 import { AppHeaderBar } from "./app-header-bar";
 
 const MockProvider = ({ children, todoItems }) => {
   return (
-    <TodoAppStateContext.Provider
+    <TodoAppStore.Provider
       value={{
-        todos: todoItems,
+        state: {
+          todos: todoItems,
+        },
       }}
     >
       {children}
-    </TodoAppStateContext.Provider>
+    </TodoAppStore.Provider>
   );
 };
 
