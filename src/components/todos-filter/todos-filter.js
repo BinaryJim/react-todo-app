@@ -16,6 +16,7 @@ const TodosFilter = ({ classes, testId }) => {
           "todos-filter__action--is-active": filter === "ALL",
         })}
         aria-label="All todos"
+        disabled={filter === "ALL" ? true : false}
         onClick={() => setTasksFilter("ALL")}
       >
         All
@@ -25,6 +26,7 @@ const TodosFilter = ({ classes, testId }) => {
           "todos-filter__action--is-active": filter === "OPEN",
         })}
         aria-label="Open todos"
+        disabled={filter === "OPEN" ? true : false}
         onClick={() => setTasksFilter("OPEN")}
       >
         Open
@@ -34,6 +36,7 @@ const TodosFilter = ({ classes, testId }) => {
           "todos-filter__action--is-active": filter === "DONE",
         })}
         aria-label="Done todos"
+        disabled={filter === "DONE" ? true : false}
         onClick={() => setTasksFilter("DONE")}
       >
         Done
