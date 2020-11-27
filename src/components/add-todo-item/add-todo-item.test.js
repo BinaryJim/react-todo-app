@@ -1,18 +1,20 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { TodoAppDispatchContext } from "../../store/todo-app-context";
+import { TodoAppStore } from "../../store/todo-app-store";
 import { AddTodoItem } from "./add-todo-item";
 
 const MockProvider = ({ children, callback }) => {
   return (
-    <TodoAppDispatchContext.Provider
+    <TodoAppStore.Provider
       value={{
-        addTodo: callback,
+        actions: {
+          addTodo: callback,
+        },
       }}
     >
       {children}
-    </TodoAppDispatchContext.Provider>
+    </TodoAppStore.Provider>
   );
 };
 

@@ -3,11 +3,13 @@ import PropTypes from "prop-types";
 import cn from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { useTodoAppDispatchContext } from "../../store/todo-app-context";
+import { useTodoAppStore } from "../../store/todo-app-store";
 import "./add-todo-item.scss";
 
 const AddTodoItem = ({ classes, testId }) => {
-  const { addTodo } = useTodoAppDispatchContext();
+  const {
+    actions: { addTodo },
+  } = useTodoAppStore();
 
   const [inputValue, setInputValue] = useState("");
 
