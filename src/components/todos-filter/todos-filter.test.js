@@ -142,3 +142,16 @@ describe("TodosFilter - with done todos filter", () => {
     expect(actions.setTasksFilter).toHaveBeenCalledTimes(1);
   });
 });
+
+describe("TodosFilter - with custom class names", () => {
+  it("should pass the provided class names to the component root element", () => {
+    render(
+      <MockProvider actions={actions}>
+        <TodosFilter testId="todos-filter-component" classes="test-class" />
+      </MockProvider>
+    );
+    expect(screen.getByTestId("todos-filter-component")).toHaveClass(
+      "test-class"
+    );
+  });
+});
