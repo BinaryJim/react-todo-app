@@ -3,13 +3,13 @@
 .app-header-bar {
   background-color: $primary-color;
   color: $white;
-  padding: $gap;
+  padding: rem-calc(16);
   min-height: rem-calc(64);
 
   // Inner wrap
   &__content {
     display: grid;
-    column-gap: $gap;
+    column-gap: rem-calc(16);
     align-items: center;
     grid-template-columns: repeat(2, auto);
   }
@@ -17,7 +17,7 @@
   // App title
   &__content__title {
     margin: 0;
-    font-size: rem-calc(20);
+    font-size: rem-calc(18);
     line-height: normal;
   }
 

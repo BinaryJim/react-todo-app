@@ -1,0 +1,24 @@
+@import "../../styles/util/_all";
+
+.main-view {
+  &__container {
+    /*
+    padding: rem-calc(32) rem-calc(16);
+    width: 100%;
+    max-width: rem-calc($max-page-width);
+    margin: 0 auto;
+    */
+
+    padding-top: rem-calc(32);
+    padding-bottom: rem-calc(32);
+
+    @include breakpoint(md) {
+      padding-top: rem-calc(64);
+      padding-bottom: rem-calc(64);
+    }
+
+    > *:not(:last-of-type) {
+      margin-bottom: rem-calc(32);
+    }
+  }
+}

@@ -5,7 +5,7 @@
 
   display: flex;
   align-items: center;
-  padding: rem-calc($gap - 1) 0;
+  padding: rem-calc(15) 0;
   border-bottom: rem-calc(1) solid $grey-lighten-3;
   min-height: rem-calc(64);
 
@@ -22,7 +22,7 @@
 
   // Todo status
   &__status {
-    margin-right: rem-calc($gap);
+    margin-right: rem-calc(8);
     flex: 0 0 auto;
     line-height: 0;
 
@@ -34,8 +34,8 @@
     // Faux indicator - base styles
     &__indicator {
       display: inline-block;
-      width: rem-calc(24);
-      height: rem-calc(24);
+      width: rem-calc(20);
+      height: rem-calc(20);
       border-radius: 50%;
       border: rem-calc(1) solid $grey-lighten-1;
       cursor: pointer;
@@ -45,11 +45,11 @@
     // Faux indicator - Checked styles
     &__input:checked + &__indicator {
       background-color: $primary-color;
-      box-shadow: inset 0 0 0 rem-calc(3) $body-background-color-lt;
+      box-shadow: inset 0 0 0 rem-calc(2) $body-background-color-lt;
       border-color: $primary-color;
 
       @media (prefers-color-scheme: dark) {
-        box-shadow: inset 0 0 0 rem-calc(3) $body-background-color-dt;
+        box-shadow: inset 0 0 0 rem-calc(2) $body-background-color-dt;
       }
     }
 
@@ -62,9 +62,10 @@
 
   // Todo description
   &__description {
-    margin: 0;
+    margin: 0 rem-calc(8) 0 0;
     line-height: 1.5;
     flex: 1 1 auto;
+    font-size: rem-calc(15);
 
     // Done state
     #{$bem-base}--is-done & {
@@ -81,14 +82,23 @@
   &__pin {
     flex: 0 0 auto;
     border: 0;
+    border-radius: $radius;
     padding: 0;
-    width: rem-calc($gap * 2);
-    height: rem-calc($gap * 2);
-    margin-left: rem-calc($gap / 2);
+    width: rem-calc(32);
+    height: rem-calc(32);
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color $transition;
+
+    &:hover {
+      background-color: $grey-lighten-5;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: $grey-darken-3;
+      }
+    }
 
     // Checkbox input
     &__input {
@@ -109,18 +119,28 @@
 
   // Remove todo item button
   &__remove {
+    flex: 0 0 auto;
     border: 0;
+    border-radius: $radius;
     padding: 0;
     margin: 0;
-    width: rem-calc($gap * 2);
-    height: rem-calc($gap * 2);
-    margin-left: rem-calc($gap / 2);
+    width: rem-calc(32);
+    height: rem-calc(32);
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     background: none;
     color: $red;
+    transition: background-color $transition;
+
+    &:hover {
+      background-color: $grey-lighten-5;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: $grey-darken-3;
+      }
+    }
 
     &:active,
     &:focus {

@@ -6,8 +6,8 @@
 
   &__action {
     outline: none;
-    padding: rem-calc($gap / 2);
-    margin: rem-calc($gap / 4);
+    padding: rem-calc(8);
+    margin: 0 rem-calc(4);
     width: 33.333%;
     max-width: rem-calc(120);
     line-height: 1;
