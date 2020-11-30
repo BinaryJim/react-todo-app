@@ -14,16 +14,50 @@
     grid-template-columns: repeat(2, auto);
   }
 
-  // App title
-  &__content__title {
-    margin: 0;
-    font-size: rem-calc(18);
-    line-height: normal;
-  }
-
   // Todo count
   &__content__todo-count {
     font-weight: $font-weight-bold;
+  }
+
+  // Todo filters
+  &__content__todo-filters {
     justify-self: end;
+
+    &__action {
+      outline: none;
+      padding: 0;
+      margin: 0 rem-calc(4);
+      width: rem-calc(60);
+      height: rem-calc(30);
+      line-height: 1;
+      font-size: rem-calc(12);
+      color: $grey-lighten-5;
+      font-weight: $font-weight-bold;
+      text-transform: uppercase;
+      border-radius: $radius;
+      border: rem-calc(1) solid $blue-darken-1;
+      background-color: $blue-darken-1;
+      cursor: pointer;
+      transition: all $transition;
+
+      &:hover {
+        border-color: darken($blue-darken-1, 2%);
+        background-color: darken($blue-darken-1, 2%);
+      }
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      &--is-active {
+        background-color: $white;
+        color: $primary-color;
+        pointer-events: none;
+      }
+    }
   }
 }

@@ -6,7 +6,8 @@ import "./app-header-bar.scss";
 
 const AppHeaderBar = ({ classes, testId }) => {
   const {
-    state: { todos },
+    state: { todos, filter },
+    actions: { setTasksFilter },
   } = useTodoAppStore();
   const todoCount = todos.length <= 100 ? todos.length : "100+";
 
@@ -16,13 +17,47 @@ const AppHeaderBar = ({ classes, testId }) => {
       data-testid={testId}
     >
       <div className="app-header-bar__content">
-        <h1 className="app-header-bar__content__title">Todos</h1>
         <span
           aria-label="Active todo count"
           className="app-header-bar__content__todo-count"
         >
           {todoCount}
         </span>
+        <div className="app-header-bar__content__todo-filters">
+          <button
+            className={cn("app-header-bar__content__todo-filters__action ", {
+              "app-header-bar__content__todo-filters__action--is-active":
+                filter === "ALL",
+            })}
+            aria-label="All todos"
+            disabled={filter === "ALL" ? true : false}
+            onClick={() => setTasksFilter("ALL")}
+          >
+            All
+          </button>
+          <button
+            className={cn("app-header-bar__content__todo-filters__action ", {
+              "app-header-bar__content__todo-filters__action--is-active":
+                filter === "OPEN",
+            })}
+            aria-label="Open todos"
+            disabled={filter === "OPEN" ? true : false}
+            onClick={() => setTasksFilter("OPEN")}
+          >
+            Open
+          </button>
+          <button
+            className={cn("app-header-bar__content__todo-filters__action ", {
+              "app-header-bar__content__todo-filters__action--is-active":
+                filter === "DONE",
+            })}
+            aria-label="Done todos"
+            disabled={filter === "DONE" ? true : false}
+            onClick={() => setTasksFilter("DONE")}
+          >
+            Done
+          </button>
+        </div>
       </div>
     </header>
   );
