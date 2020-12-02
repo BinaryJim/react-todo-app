@@ -2,7 +2,7 @@
 
 .app-header-bar {
   background-color: $primary-color;
-  color: $white;
+  color: $grey-lighten-4;
   padding: rem-calc(16);
   min-height: rem-calc(64);
 
@@ -35,7 +35,7 @@
       font-weight: $font-weight-bold;
       text-transform: uppercase;
       border-radius: $radius;
-      border: rem-calc(1) solid $blue-darken-1;
+      border: none;
       background-color: $blue-darken-1;
       cursor: pointer;
       transition: all $transition;
@@ -54,7 +54,7 @@
       }
 
       &--is-active {
-        background-color: $white;
+        background-color: $grey-lighten-4;
         color: $primary-color;
         pointer-events: none;
       }
