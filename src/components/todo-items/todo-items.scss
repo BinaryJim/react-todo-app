@@ -1,0 +1,9 @@
+@import "../../styles/util/_all";
+
+.todo-items {
+  &__no-todos-msg {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+  }
+}
