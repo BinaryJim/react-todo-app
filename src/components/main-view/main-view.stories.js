@@ -71,6 +71,53 @@ WithTodosFilterAll.decorators = [
   ),
 ];
 
-export { WithTodosFilterAll };
+const WithTodosFilterOpen = Template.bind({});
+WithTodosFilterOpen.decorators = [
+  (Story) => (
+    <TodoAppStore.Provider
+      value={{
+        state: { ...state, filter: "OPEN" },
+        actions,
+      }}
+    >
+      <Story />
+    </TodoAppStore.Provider>
+  ),
+];
+
+const WithTodosFilterDone = Template.bind({});
+WithTodosFilterDone.decorators = [
+  (Story) => (
+    <TodoAppStore.Provider
+      value={{
+        state: { ...state, filter: "DONE" },
+        actions,
+      }}
+    >
+      <Story />
+    </TodoAppStore.Provider>
+  ),
+];
+
+const WithNoTodos = Template.bind({});
+WithNoTodos.decorators = [
+  (Story) => (
+    <TodoAppStore.Provider
+      value={{
+        state: { filter: "ALL", todos: [] },
+        actions,
+      }}
+    >
+      <Story />
+    </TodoAppStore.Provider>
+  ),
+];
+
+export {
+  WithTodosFilterAll,
+  WithTodosFilterOpen,
+  WithTodosFilterDone,
+  WithNoTodos,
+};
 
 export default config;
