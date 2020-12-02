@@ -9,7 +9,9 @@ const AppHeaderBar = ({ classes, testId }) => {
     state: { todos, filter },
     actions: { setTasksFilter },
   } = useTodoAppStore();
-  const todoCount = todos.length <= 100 ? todos.length : "100+";
+
+  const openTodos = todos.filter((todo) => !todo.done);
+  const todoCount = openTodos.length <= 100 ? openTodos.length : "100+";
 
   return (
     <header
