@@ -40,9 +40,11 @@
       cursor: pointer;
       transition: all $transition;
 
-      &:hover {
-        border-color: darken($blue-darken-1, 2%);
-        background-color: darken($blue-darken-1, 2%);
+      @media (hover: hover) {
+        &:hover {
+          border-color: darken($blue-darken-1, 2%);
+          background-color: darken($blue-darken-1, 2%);
+        }
       }
 
       &:first-of-type {

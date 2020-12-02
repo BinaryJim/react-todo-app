@@ -92,11 +92,13 @@
     align-items: center;
     transition: background-color $transition;
 
-    &:hover {
-      background-color: $grey-lighten-5;
+    @media (hover: hover) {
+      &:hover {
+        background-color: $grey-lighten-5;
 
-      @media (prefers-color-scheme: dark) {
-        background-color: $grey-darken-3;
+        @media (prefers-color-scheme: dark) {
+          background-color: $grey-darken-3;
+        }
       }
     }
 
@@ -134,11 +136,13 @@
     color: $red;
     transition: background-color $transition;
 
-    &:hover {
-      background-color: $grey-lighten-5;
+    @media (hover: hover) {
+      &:hover {
+        background-color: $grey-lighten-5;
 
-      @media (prefers-color-scheme: dark) {
-        background-color: $grey-darken-3;
+        @media (prefers-color-scheme: dark) {
+          background-color: $grey-darken-3;
+        }
       }
     }
 

@@ -55,9 +55,11 @@
     transition: background-color $transition;
 
     // Hover and focus styles
-    &:hover:not(:disabled),
-    &:focus:not(:disabled) {
-      background-color: mix(#000, $primary-color, 10%);
+    @media (hover: hover) {
+      &:hover:not(:disabled),
+      &:focus:not(:disabled) {
+        background-color: mix(#000, $primary-color, 10%);
+      }
     }
 
     // Disabled styles
