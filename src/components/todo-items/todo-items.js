@@ -16,17 +16,22 @@ const TodoItems = ({ classes, testId }) => {
       return state.todos;
     }
 
-    if (state.filter === "DONE")
+    if (state.filter === "DONE") {
       return [...state.todos.filter((todo) => todo.done)];
+    }
 
     const orderedTodos = [
       ...state.todos.filter((todo) => todo.pinned),
       ...state.todos.filter((todo) => !todo.pinned),
     ];
 
-    if (state.filter === "ALL") return orderedTodos;
-    if (state.filter === "OPEN")
+    if (state.filter === "ALL") {
+      return orderedTodos;
+    }
+
+    if (state.filter === "OPEN") {
       return orderedTodos.filter((todo) => !todo.done);
+    }
   }, [state.filter, state.todos]);
 
   const outputTodos = () => {
