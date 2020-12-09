@@ -1,7 +1,7 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
 import { FullWidthDecorator } from "../../../.storybook/decorators/full-width-decorator";
-import { TodoAppStore } from "../../store/todo-app-store";
+import { TodoAppContext } from "../../store/todo-app-store";
 import { TodoItems } from "./todo-items";
 
 const config = {
@@ -58,14 +58,14 @@ const WithAllTodosFilter = Template.bind({});
 WithAllTodosFilter.args = {};
 WithAllTodosFilter.decorators = [
   (Story) => (
-    <TodoAppStore.Provider
+    <TodoAppContext.Provider
       value={{
         state,
         actions,
       }}
     >
       <Story />
-    </TodoAppStore.Provider>
+    </TodoAppContext.Provider>
   ),
 ];
 
@@ -73,14 +73,14 @@ const WithOpenTodosFilter = Template.bind({});
 WithOpenTodosFilter.args = {};
 WithOpenTodosFilter.decorators = [
   (Story) => (
-    <TodoAppStore.Provider
+    <TodoAppContext.Provider
       value={{
         state: { ...state, filter: "OPEN" },
         actions,
       }}
     >
       <Story />
-    </TodoAppStore.Provider>
+    </TodoAppContext.Provider>
   ),
 ];
 
@@ -88,14 +88,14 @@ const WithDoneTodosFilter = Template.bind({});
 WithDoneTodosFilter.args = {};
 WithDoneTodosFilter.decorators = [
   (Story) => (
-    <TodoAppStore.Provider
+    <TodoAppContext.Provider
       value={{
         state: { ...state, filter: "DONE" },
         actions,
       }}
     >
       <Story />
-    </TodoAppStore.Provider>
+    </TodoAppContext.Provider>
   ),
 ];
 
@@ -103,14 +103,14 @@ const WithNoTodos = Template.bind({});
 WithNoTodos.args = {};
 WithNoTodos.decorators = [
   (Story) => (
-    <TodoAppStore.Provider
+    <TodoAppContext.Provider
       value={{
         state: { filter: "DONE", todos: [] },
         actions,
       }}
     >
       <Story />
-    </TodoAppStore.Provider>
+    </TodoAppContext.Provider>
   ),
 ];
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { TodoAppStore } from "../../store/todo-app-store";
+import { TodoAppContext } from "../../store/todo-app-store";
 import { TodoItems } from "./todo-items";
 
 const state = {
@@ -48,14 +48,14 @@ const actions = {
 
 const MockProvider = ({ children, state, actions }) => {
   return (
-    <TodoAppStore.Provider
+    <TodoAppContext.Provider
       value={{
         state,
         actions,
       }}
     >
       {children}
-    </TodoAppStore.Provider>
+    </TodoAppContext.Provider>
   );
 };
 

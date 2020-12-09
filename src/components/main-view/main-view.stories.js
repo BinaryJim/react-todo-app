@@ -1,6 +1,6 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
-import { TodoAppStore } from "../../store/todo-app-store";
+import { TodoAppContext } from "../../store/todo-app-store";
 import { MainView } from "./main-view";
 
 const config = {
@@ -60,56 +60,56 @@ const Template = (args) => <MainView {...args} />;
 const WithTodosFilterAll = Template.bind({});
 WithTodosFilterAll.decorators = [
   (Story) => (
-    <TodoAppStore.Provider
+    <TodoAppContext.Provider
       value={{
         state,
         actions,
       }}
     >
       <Story />
-    </TodoAppStore.Provider>
+    </TodoAppContext.Provider>
   ),
 ];
 
 const WithTodosFilterOpen = Template.bind({});
 WithTodosFilterOpen.decorators = [
   (Story) => (
-    <TodoAppStore.Provider
+    <TodoAppContext.Provider
       value={{
         state: { ...state, filter: "OPEN" },
         actions,
       }}
     >
       <Story />
-    </TodoAppStore.Provider>
+    </TodoAppContext.Provider>
   ),
 ];
 
 const WithTodosFilterDone = Template.bind({});
 WithTodosFilterDone.decorators = [
   (Story) => (
-    <TodoAppStore.Provider
+    <TodoAppContext.Provider
       value={{
         state: { ...state, filter: "DONE" },
         actions,
       }}
     >
       <Story />
-    </TodoAppStore.Provider>
+    </TodoAppContext.Provider>
   ),
 ];
 
 const WithNoTodos = Template.bind({});
 WithNoTodos.decorators = [
   (Story) => (
-    <TodoAppStore.Provider
+    <TodoAppContext.Provider
       value={{
         state: { filter: "ALL", todos: [] },
         actions,
       }}
     >
       <Story />
-    </TodoAppStore.Provider>
+    </TodoAppContext.Provider>
   ),
 ];
 

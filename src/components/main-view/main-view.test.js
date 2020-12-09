@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { MainView } from "./main-view";
-import { TodoAppStore } from "../../store/todo-app-store";
+import { TodoAppContext } from "../../store/todo-app-store";
 
 const state = {
   filter: "ALL",
@@ -29,7 +29,7 @@ const state = {
 
 const MockProvider = ({ children, state }) => {
   return (
-    <TodoAppStore.Provider
+    <TodoAppContext.Provider
       value={{
         state,
         actions: {
@@ -40,7 +40,7 @@ const MockProvider = ({ children, state }) => {
       }}
     >
       {children}
-    </TodoAppStore.Provider>
+    </TodoAppContext.Provider>
   );
 };
 
