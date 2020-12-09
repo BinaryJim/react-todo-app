@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { AppHeaderBar } from "../app-header-bar";
 import { AddTodoItem } from "../add-todo-item";
 import { TodoItems } from "../todo-items";
