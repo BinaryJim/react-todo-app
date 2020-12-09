@@ -1,33 +1,33 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { TodoAppContext } from "../../store/todo-app-store";
+import { TodoAppStoreContext } from "../../store/todo-app-store";
 import { AppHeaderBar } from "./app-header-bar";
 
-const actions = {
+const dispatchers = {
   setTasksFilter: jest.fn(),
 };
 
-const MockProvider = ({ children, todoItems, filter, actions }) => {
+const MockProvider = ({ children, todoItems, filter, dispatchers }) => {
   return (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state: {
           todos: todoItems,
           filter,
         },
-        actions,
+        dispatchers,
       }}
     >
       {children}
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   );
 };
 
 describe("AppHeaderBar - test render", () => {
   it("should match snapshot", () => {
     const { asFragment } = render(
-      <MockProvider todoItems={[]} filter="ALL" actions={actions}>
+      <MockProvider todoItems={[]} filter="ALL" dispatchers={dispatchers}>
         <AppHeaderBar />
       </MockProvider>
     );
@@ -61,7 +61,7 @@ describe("AppHeaderBar - display of todo count", () => {
           },
         ]}
         filter="ALL"
-        actions={actions}
+        dispatchers={dispatchers}
       >
         <AppHeaderBar />
       </MockProvider>
@@ -78,7 +78,7 @@ describe("AppHeaderBar - truncation of todo count", () => {
         <MockProvider
           todoItems={[...Array(99).keys()]}
           filter="ALL"
-          actions={actions}
+          dispatchers={dispatchers}
         >
           <AppHeaderBar />
         </MockProvider>
@@ -98,7 +98,7 @@ describe("AppHeaderBar - truncation of todo count", () => {
         <MockProvider
           todoItems={[...Array(100).keys()]}
           filter="ALL"
-          actions={actions}
+          dispatchers={dispatchers}
         >
           <AppHeaderBar />
         </MockProvider>
@@ -118,7 +118,7 @@ describe("AppHeaderBar - truncation of todo count", () => {
         <MockProvider
           todoItems={[...Array(101).keys()]}
           filter="ALL"
-          actions={actions}
+          dispatchers={dispatchers}
         >
           <AppHeaderBar />
         </MockProvider>
@@ -136,7 +136,7 @@ describe("AppHeaderBar - truncation of todo count", () => {
 describe("AppHeaderBar - with custom class names", () => {
   it("Should pass the provided class names to the component root element", () => {
     render(
-      <MockProvider todoItems={[]} filter="ALL" actions={actions}>
+      <MockProvider todoItems={[]} filter="ALL" dispatchers={dispatchers}>
         <AppHeaderBar classes="test-class" testId="app-header-bar-component" />
       </MockProvider>
     );
@@ -150,7 +150,7 @@ describe("AppHeaderBar - todos filter", () => {
   describe("with filter set to all todos", () => {
     beforeEach(() => {
       render(
-        <MockProvider todoItems={[]} filter="ALL" actions={actions}>
+        <MockProvider todoItems={[]} filter="ALL" dispatchers={dispatchers}>
           <AppHeaderBar />
         </MockProvider>
       );
@@ -170,24 +170,24 @@ describe("AppHeaderBar - todos filter", () => {
 
     it("should not respond to user clicks on the all todos filter button", () => {
       userEvent.click(screen.getByLabelText("All todos"));
-      expect(actions.setTasksFilter).not.toHaveBeenCalled();
+      expect(dispatchers.setTasksFilter).not.toHaveBeenCalled();
     });
 
     it("should respond to user clicks on the open todos filter button", () => {
       userEvent.click(screen.getByLabelText("Open todos"));
-      expect(actions.setTasksFilter).toHaveBeenCalledWith("OPEN");
+      expect(dispatchers.setTasksFilter).toHaveBeenCalledWith("OPEN");
     });
 
     it("should respond to user clicks on the done todos filter button", () => {
       userEvent.click(screen.getByLabelText("Done todos"));
-      expect(actions.setTasksFilter).toHaveBeenCalledWith("DONE");
+      expect(dispatchers.setTasksFilter).toHaveBeenCalledWith("DONE");
     });
   });
 
   describe("with filter set to open todos", () => {
     beforeEach(() => {
       render(
-        <MockProvider todoItems={[]} filter="OPEN" actions={actions}>
+        <MockProvider todoItems={[]} filter="OPEN" dispatchers={dispatchers}>
           <AppHeaderBar />
         </MockProvider>
       );
@@ -207,24 +207,24 @@ describe("AppHeaderBar - todos filter", () => {
 
     it("should not respond to user clicks on the open todos filter button", () => {
       userEvent.click(screen.getByLabelText("Open todos"));
-      expect(actions.setTasksFilter).not.toHaveBeenCalled();
+      expect(dispatchers.setTasksFilter).not.toHaveBeenCalled();
     });
 
     it("should respond to user clicks on the all todos filter button", () => {
       userEvent.click(screen.getByLabelText("All todos"));
-      expect(actions.setTasksFilter).toHaveBeenCalledWith("ALL");
+      expect(dispatchers.setTasksFilter).toHaveBeenCalledWith("ALL");
     });
 
     it("should respond to user clicks on the done todos filter button", () => {
       userEvent.click(screen.getByLabelText("Done todos"));
-      expect(actions.setTasksFilter).toHaveBeenCalledWith("DONE");
+      expect(dispatchers.setTasksFilter).toHaveBeenCalledWith("DONE");
     });
   });
 
   describe("with filter set to done todos", () => {
     beforeEach(() => {
       render(
-        <MockProvider todoItems={[]} filter="DONE" actions={actions}>
+        <MockProvider todoItems={[]} filter="DONE" dispatchers={dispatchers}>
           <AppHeaderBar />
         </MockProvider>
       );
@@ -244,17 +244,17 @@ describe("AppHeaderBar - todos filter", () => {
 
     it("should not respond to user clicks on the done todos filter button", () => {
       userEvent.click(screen.getByLabelText("Done todos"));
-      expect(actions.setTasksFilter).not.toHaveBeenCalled();
+      expect(dispatchers.setTasksFilter).not.toHaveBeenCalled();
     });
 
     it("should respond to user clicks on the all todos filter button", () => {
       userEvent.click(screen.getByLabelText("All todos"));
-      expect(actions.setTasksFilter).toHaveBeenCalledWith("ALL");
+      expect(dispatchers.setTasksFilter).toHaveBeenCalledWith("ALL");
     });
 
     it("should respond to user clicks on the open todos filter button", () => {
       userEvent.click(screen.getByLabelText("Open todos"));
-      expect(actions.setTasksFilter).toHaveBeenCalledWith("OPEN");
+      expect(dispatchers.setTasksFilter).toHaveBeenCalledWith("OPEN");
     });
   });
 });

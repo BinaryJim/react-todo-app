@@ -1,7 +1,7 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
 import { FullWidthDecorator } from "../../../.storybook/decorators/full-width-decorator";
-import { TodoAppContext } from "../../store/todo-app-store";
+import { TodoAppStoreContext } from "../../store/todo-app-store";
 import { TodoItems } from "./todo-items";
 
 const config = {
@@ -48,7 +48,7 @@ const state = {
   ],
 };
 
-const actions = {
+const dispatchers = {
   toggleTaskStatus: action("Task status toggled"),
   toggleTaskPin: action("Task pinned toggled"),
   removeTodo: action("Todo item removed"),
@@ -58,14 +58,14 @@ const WithAllTodosFilter = Template.bind({});
 WithAllTodosFilter.args = {};
 WithAllTodosFilter.decorators = [
   (Story) => (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state,
-        actions,
+        dispatchers,
       }}
     >
       <Story />
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   ),
 ];
 
@@ -73,14 +73,14 @@ const WithOpenTodosFilter = Template.bind({});
 WithOpenTodosFilter.args = {};
 WithOpenTodosFilter.decorators = [
   (Story) => (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state: { ...state, filter: "OPEN" },
-        actions,
+        dispatchers,
       }}
     >
       <Story />
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   ),
 ];
 
@@ -88,14 +88,14 @@ const WithDoneTodosFilter = Template.bind({});
 WithDoneTodosFilter.args = {};
 WithDoneTodosFilter.decorators = [
   (Story) => (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state: { ...state, filter: "DONE" },
-        actions,
+        dispatchers,
       }}
     >
       <Story />
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   ),
 ];
 
@@ -103,14 +103,14 @@ const WithNoTodos = Template.bind({});
 WithNoTodos.args = {};
 WithNoTodos.decorators = [
   (Story) => (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state: { filter: "DONE", todos: [] },
-        actions,
+        dispatchers,
       }}
     >
       <Story />
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   ),
 ];
 

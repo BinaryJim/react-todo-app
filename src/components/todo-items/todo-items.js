@@ -1,15 +1,15 @@
 import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
-import { useTodoAppContext } from "../../store/todo-app-store";
+import { useTodoAppStoreContext } from "../../store/todo-app-store";
 import { TodoItem } from "../todo-item";
 import "./todo-items.scss";
 
 const TodoItems = ({ classes, testId }) => {
   const {
     state,
-    actions: { toggleTaskStatus, toggleTaskPin, removeTodo },
-  } = useTodoAppContext();
+    dispatchers: { toggleTaskStatus, toggleTaskPin, removeTodo },
+  } = useTodoAppStoreContext();
 
   const processedTodos = useMemo(() => {
     if (!state.todos.length) {

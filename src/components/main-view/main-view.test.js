@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { MainView } from "./main-view";
-import { TodoAppContext } from "../../store/todo-app-store";
+import { TodoAppStoreContext } from "../../store/todo-app-store";
 
 const state = {
   filter: "ALL",
@@ -29,10 +29,10 @@ const state = {
 
 const MockProvider = ({ children, state }) => {
   return (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state,
-        actions: {
+        dispatchers: {
           toggleTaskStatus: () => {},
           toggleTaskPin: () => {},
           removeTodo: () => {},
@@ -40,7 +40,7 @@ const MockProvider = ({ children, state }) => {
       }}
     >
       {children}
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   );
 };
 

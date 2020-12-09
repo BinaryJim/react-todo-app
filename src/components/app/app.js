@@ -1,20 +1,23 @@
 import React from "react";
-import { TodoAppContext, useTodoAppStore } from "../../store/todo-app-store";
+import {
+  TodoAppStoreContext,
+  useTodoAppStore,
+} from "../../store/todo-app-store";
 import { MainView } from "../main-view";
 import "../../styles/index.scss";
 
 const App = () => {
-  const { state, actions } = useTodoAppStore();
+  const { state, dispatchers } = useTodoAppStore();
 
   return (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state,
-        actions,
+        dispatchers,
       }}
     >
       <MainView />
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   );
 };
 

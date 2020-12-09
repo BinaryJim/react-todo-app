@@ -86,8 +86,8 @@ const useTodoAppStore = () => {
     }
   );
 
-  // Set dispatch functions
-  const actions = {
+  // Set dispatcher functions
+  const dispatchers = {
     addTodo: (description) => {
       dispatch({ type: actionTypes.ADD_TODO, description });
     },
@@ -110,10 +110,10 @@ const useTodoAppStore = () => {
     localStorage.setItem(localStorageKey, JSON.stringify(state));
   }, [state]);
 
-  return { state, actions };
+  return { state, dispatchers };
 };
 
-const TodoAppContext = React.createContext();
-const useTodoAppContext = () => useContext(TodoAppContext);
+const TodoAppStoreContext = React.createContext();
+const useTodoAppStoreContext = () => useContext(TodoAppStoreContext);
 
-export { TodoAppContext, useTodoAppContext, useTodoAppStore };
+export { TodoAppStoreContext, useTodoAppStoreContext, useTodoAppStore };

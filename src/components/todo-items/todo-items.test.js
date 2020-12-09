@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { TodoAppContext } from "../../store/todo-app-store";
+import { TodoAppStoreContext } from "../../store/todo-app-store";
 import { TodoItems } from "./todo-items";
 
 const state = {
@@ -40,29 +40,29 @@ const state = {
   ],
 };
 
-const actions = {
+const dispatchers = {
   toggleTaskStatus: jest.fn(),
   toggleTaskPin: jest.fn(),
   removeTodo: jest.fn(),
 };
 
-const MockProvider = ({ children, state, actions }) => {
+const MockProvider = ({ children, state, dispatchers }) => {
   return (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state,
-        actions,
+        dispatchers,
       }}
     >
       {children}
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   );
 };
 
 describe("TodoItems - test render", () => {
   it("should match snapshot", () => {
     const { asFragment } = render(
-      <MockProvider state={state} actions={actions}>
+      <MockProvider state={state} dispatchers={dispatchers}>
         <TodoItems />
       </MockProvider>
     );
@@ -74,7 +74,7 @@ describe("TodoItems - test render", () => {
 describe("TodoItems - filtered by all todos", () => {
   beforeEach(() => {
     render(
-      <MockProvider state={state} actions={actions}>
+      <MockProvider state={state} dispatchers={dispatchers}>
         <TodoItems />
       </MockProvider>
     );
@@ -94,7 +94,10 @@ describe("TodoItems - filtered by all todos", () => {
 describe("TodoItems - filtered by open todos", () => {
   beforeEach(() => {
     render(
-      <MockProvider state={{ ...state, filter: "OPEN" }} actions={actions}>
+      <MockProvider
+        state={{ ...state, filter: "OPEN" }}
+        dispatchers={dispatchers}
+      >
         <TodoItems />
       </MockProvider>
     );
@@ -118,7 +121,10 @@ describe("TodoItems - filtered by open todos", () => {
 describe("TodoItems - filtered by done todos", () => {
   beforeEach(() => {
     render(
-      <MockProvider state={{ ...state, filter: "DONE" }} actions={actions}>
+      <MockProvider
+        state={{ ...state, filter: "DONE" }}
+        dispatchers={dispatchers}
+      >
         <TodoItems />
       </MockProvider>
     );
@@ -141,7 +147,7 @@ describe("TodoItems - filtered by done todos", () => {
 describe("TodoItems - with no todos", () => {
   beforeEach(() => {
     render(
-      <MockProvider state={{ ...state, todos: [] }} actions={actions}>
+      <MockProvider state={{ ...state, todos: [] }} dispatchers={dispatchers}>
         <TodoItems />
       </MockProvider>
     );
@@ -158,10 +164,10 @@ describe("TodoItems - with no todos", () => {
   });
 });
 
-describe("TodoItems - User actions", () => {
+describe("TodoItems - User dispatchers", () => {
   beforeEach(() => {
     render(
-      <MockProvider state={state} actions={actions}>
+      <MockProvider state={state} dispatchers={dispatchers}>
         <TodoItems />
       </MockProvider>
     );
@@ -169,24 +175,24 @@ describe("TodoItems - User actions", () => {
 
   it("should allow a user to toggle the status of a specific todo item", () => {
     userEvent.click(screen.getAllByLabelText("Todo status")[0]);
-    expect(actions.toggleTaskStatus).toHaveBeenCalledWith(2);
+    expect(dispatchers.toggleTaskStatus).toHaveBeenCalledWith(2);
   });
 
   it("should allow a user to toggle the status of a specific todo pin", () => {
     userEvent.click(screen.getAllByLabelText("Pinned status")[0]);
-    expect(actions.toggleTaskPin).toHaveBeenCalledWith(2);
+    expect(dispatchers.toggleTaskPin).toHaveBeenCalledWith(2);
   });
 
   it("should allow a user to delete a specific todo", () => {
     userEvent.click(screen.getAllByLabelText("Remove todo")[0]);
-    expect(actions.removeTodo).toHaveBeenCalledWith(2);
+    expect(dispatchers.removeTodo).toHaveBeenCalledWith(2);
   });
 });
 
 describe("TodoItems - with custom class names", () => {
   it("should pass the provided class names to the component root element", () => {
     render(
-      <MockProvider state={state} actions={actions}>
+      <MockProvider state={state} dispatchers={dispatchers}>
         <TodoItems testId="todo-items-component" classes="test-class" />
       </MockProvider>
     );

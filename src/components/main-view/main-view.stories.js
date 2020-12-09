@@ -1,6 +1,6 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
-import { TodoAppContext } from "../../store/todo-app-store";
+import { TodoAppStoreContext } from "../../store/todo-app-store";
 import { MainView } from "./main-view";
 
 const config = {
@@ -47,7 +47,7 @@ const state = {
   ],
 };
 
-const actions = {
+const dispatchers = {
   toggleTaskStatus: action("Task status toggled"),
   toggleTaskPin: action("Task pinned toggled"),
   removeTodo: action("Todo item removed"),
@@ -60,56 +60,56 @@ const Template = (args) => <MainView {...args} />;
 const WithTodosFilterAll = Template.bind({});
 WithTodosFilterAll.decorators = [
   (Story) => (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state,
-        actions,
+        dispatchers,
       }}
     >
       <Story />
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   ),
 ];
 
 const WithTodosFilterOpen = Template.bind({});
 WithTodosFilterOpen.decorators = [
   (Story) => (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state: { ...state, filter: "OPEN" },
-        actions,
+        dispatchers,
       }}
     >
       <Story />
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   ),
 ];
 
 const WithTodosFilterDone = Template.bind({});
 WithTodosFilterDone.decorators = [
   (Story) => (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state: { ...state, filter: "DONE" },
-        actions,
+        dispatchers,
       }}
     >
       <Story />
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   ),
 ];
 
 const WithNoTodos = Template.bind({});
 WithNoTodos.decorators = [
   (Story) => (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state: { filter: "ALL", todos: [] },
-        actions,
+        dispatchers,
       }}
     >
       <Story />
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   ),
 ];
 

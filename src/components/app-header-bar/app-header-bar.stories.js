@@ -1,7 +1,7 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
 import { FullWidthDecorator } from "../../../.storybook/decorators/full-width-decorator";
-import { TodoAppContext } from "../../store/todo-app-store";
+import { TodoAppStoreContext } from "../../store/todo-app-store";
 import { AppHeaderBar } from "./app-header-bar";
 import "../../styles/index.scss";
 
@@ -13,7 +13,7 @@ const config = {
 
 const Template = (args) => <AppHeaderBar />;
 
-const actions = {
+const dispatchers = {
   setTasksFilter: action("Task filter action clicked"),
 };
 
@@ -21,17 +21,17 @@ const WithZeroTodos = Template.bind({});
 WithZeroTodos.args = {};
 WithZeroTodos.decorators = [
   (Story) => (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state: {
           todos: [],
           filter: "ALL",
         },
-        actions,
+        dispatchers,
       }}
     >
       <Story />
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   ),
 ];
 
@@ -39,17 +39,17 @@ const WithLessThanMaxThresholdTodos = Template.bind({});
 WithLessThanMaxThresholdTodos.args = {};
 WithLessThanMaxThresholdTodos.decorators = [
   (story) => (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state: {
           todos: [...Array(99).keys()],
           filter: "ALL",
         },
-        actions,
+        dispatchers,
       }}
     >
       {story()}
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   ),
 ];
 
@@ -57,17 +57,17 @@ const WithEqualToMaxThresholdTodos = Template.bind({});
 WithEqualToMaxThresholdTodos.args = {};
 WithEqualToMaxThresholdTodos.decorators = [
   (story) => (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state: {
           todos: [...Array(100).keys()],
           filter: "ALL",
         },
-        actions,
+        dispatchers,
       }}
     >
       {story()}
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   ),
 ];
 
@@ -75,68 +75,68 @@ const WithGreaterThanMaxThresholdTodos = Template.bind({});
 WithGreaterThanMaxThresholdTodos.args = {};
 WithGreaterThanMaxThresholdTodos.decorators = [
   (story) => (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state: {
           todos: [...Array(101).keys()],
           filter: "ALL",
         },
-        actions,
+        dispatchers,
       }}
     >
       {story()}
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   ),
 ];
 
 const WithAllTodosFilter = Template.bind({});
 WithAllTodosFilter.decorators = [
   (story) => (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state: {
           todos: [],
           filter: "ALL",
         },
-        actions,
+        dispatchers,
       }}
     >
       {story()}
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   ),
 ];
 
 const WithOpenTodosFilter = Template.bind({});
 WithOpenTodosFilter.decorators = [
   (story) => (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state: {
           todos: [],
           filter: "OPEN",
         },
-        actions,
+        dispatchers,
       }}
     >
       {story()}
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   ),
 ];
 
 const WithDoneTodosFilter = Template.bind({});
 WithDoneTodosFilter.decorators = [
   (story) => (
-    <TodoAppContext.Provider
+    <TodoAppStoreContext.Provider
       value={{
         state: {
           todos: [],
           filter: "DONE",
         },
-        actions,
+        dispatchers,
       }}
     >
       {story()}
-    </TodoAppContext.Provider>
+    </TodoAppStoreContext.Provider>
   ),
 ];
 

@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
-import { useTodoAppContext } from "../../store/todo-app-store";
+import { useTodoAppStoreContext } from "../../store/todo-app-store";
 import "./app-header-bar.scss";
 
 const AppHeaderBar = ({ classes, testId }) => {
   const {
     state: { todos, filter },
-    actions: { setTasksFilter },
-  } = useTodoAppContext();
+    dispatchers: { setTasksFilter },
+  } = useTodoAppStoreContext();
 
   const openTodos = todos.filter((todo) => !todo.done);
   const todoCount = openTodos.length <= 100 ? openTodos.length : "100+";

@@ -1,7 +1,7 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
 import { FullWidthDecorator } from "../../../.storybook/decorators/full-width-decorator";
-import { TodoAppContext } from "../../store/todo-app-store";
+import { TodoAppStoreContext } from "../../store/todo-app-store";
 import { AddTodoItem } from "./add-todo-item";
 import "../../styles/index.scss";
 
@@ -11,15 +11,15 @@ const config = {
   decorators: [
     FullWidthDecorator,
     (Story) => (
-      <TodoAppContext.Provider
+      <TodoAppStoreContext.Provider
         value={{
-          actions: {
+          dispatchers: {
             addTodo: action("Dispatch: AddTodo"),
           },
         }}
       >
         <Story />
-      </TodoAppContext.Provider>
+      </TodoAppStoreContext.Provider>
     ),
   ],
 };
