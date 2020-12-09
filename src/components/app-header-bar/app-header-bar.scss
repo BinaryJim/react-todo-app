@@ -2,28 +2,64 @@
 
 .app-header-bar {
   background-color: $primary-color;
-  color: $white;
-  padding: $gap;
+  color: $grey-lighten-4;
+  padding: rem-calc(16);
   min-height: rem-calc(64);
 
   // Inner wrap
   &__content {
     display: grid;
-    column-gap: $gap;
+    column-gap: rem-calc(16);
     align-items: center;
     grid-template-columns: repeat(2, auto);
-  }
-
-  // App title
-  &__content__title {
-    margin: 0;
-    font-size: rem-calc(20);
-    line-height: normal;
   }
 
   // Todo count
   &__content__todo-count {
     font-weight: $font-weight-bold;
+  }
+
+  // Todo filters
+  &__content__todo-filters {
     justify-self: end;
+
+    &__action {
+      outline: none;
+      padding: 0;
+      margin: 0 rem-calc(4);
+      width: rem-calc(60);
+      height: rem-calc(30);
+      line-height: 1;
+      font-size: rem-calc(12);
+      color: $grey-lighten-5;
+      font-weight: $font-weight-bold;
+      text-transform: uppercase;
+      border-radius: $radius;
+      border: none;
+      background-color: $blue-darken-1;
+      cursor: pointer;
+      transition: all $transition;
+
+      @media (hover: hover) {
+        &:hover {
+          border-color: darken($blue-darken-1, 2%);
+          background-color: darken($blue-darken-1, 2%);
+        }
+      }
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      &--is-active {
+        background-color: $grey-lighten-4;
+        color: $primary-color;
+        pointer-events: none;
+      }
+    }
   }
 }

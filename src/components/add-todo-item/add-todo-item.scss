@@ -5,13 +5,13 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: rem-calc($gap / 2);
+  padding: rem-calc(8);
   background-color: $grey-lighten-5;
   overflow: hidden;
+  border-radius: $radius;
 
-  @include breakpoint(lg) {
-    border-radius: $radius;
-    padding: rem-calc($gap);
+  @include breakpoint(md) {
+    padding: rem-calc(16);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -26,13 +26,13 @@
     color: $font-color-lt;
     font-size: rem-calc(14);
     flex: 1 1 auto;
-    padding: 0 rem-calc($gap/ 2) 0 0;
+    padding: 0 rem-calc(8) 0 0;
     line-height: normal;
-    height: rem-calc($gap * 2);
+    height: rem-calc(32);
 
-    @include breakpoint(lg) {
+    @include breakpoint(md) {
       font-size: rem-calc($font-size);
-      padding-right: rem-calc($gap);
+      padding-right: rem-calc(16);
     }
 
     @media (prefers-color-scheme: dark) {
@@ -44,19 +44,22 @@
   &__submit {
     border: 0;
     outline: 0;
+    padding: 0;
     background-color: $primary-color;
     color: $white;
-    width: rem-calc($gap * 2);
-    height: rem-calc($gap * 2);
+    width: rem-calc(32);
+    height: rem-calc(32);
     border-radius: $radius;
     cursor: pointer;
     font-size: rem-calc(14);
     transition: background-color $transition;
 
     // Hover and focus styles
-    &:hover:not(:disabled),
-    &:focus:not(:disabled) {
-      background-color: mix(#000, $primary-color, 10%);
+    @media (hover: hover) {
+      &:hover:not(:disabled),
+      &:focus:not(:disabled) {
+        background-color: mix(#000, $primary-color, 10%);
+      }
     }
 
     // Disabled styles

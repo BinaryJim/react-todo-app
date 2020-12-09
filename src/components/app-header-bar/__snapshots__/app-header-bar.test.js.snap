@@ -8,17 +8,35 @@ exports[`AppHeaderBar - test render should match snapshot 1`] = `
     <div
       class="app-header-bar__content"
     >
-      <h1
-        class="app-header-bar__content__title"
-      >
-        Todos
-      </h1>
       <span
         aria-label="Active todo count"
         class="app-header-bar__content__todo-count"
       >
         0
       </span>
+      <div
+        class="app-header-bar__content__todo-filters"
+      >
+        <button
+          aria-label="All todos"
+          class="app-header-bar__content__todo-filters__action  app-header-bar__content__todo-filters__action--is-active"
+          disabled=""
+        >
+          All
+        </button>
+        <button
+          aria-label="Open todos"
+          class="app-header-bar__content__todo-filters__action "
+        >
+          Open
+        </button>
+        <button
+          aria-label="Done todos"
+          class="app-header-bar__content__todo-filters__action "
+        >
+          Done
+        </button>
+      </div>
     </div>
   </header>
 </DocumentFragment>

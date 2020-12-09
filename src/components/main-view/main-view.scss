@@ -1,0 +1,21 @@
+@import "../../styles/util/_all";
+
+.main-view {
+  &__container {
+    padding-top: rem-calc(32);
+    padding-bottom: rem-calc(32);
+
+    @include breakpoint(md) {
+      padding-top: rem-calc(64);
+      padding-bottom: rem-calc(64);
+    }
+
+    &__add-todo-item {
+      margin-bottom: rem-calc(32);
+
+      @include breakpoint(md) {
+        margin-bottom: rem-calc(64);
+      }
+    }
+  }
+}

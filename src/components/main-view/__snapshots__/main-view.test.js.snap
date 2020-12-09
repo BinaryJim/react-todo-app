@@ -1,0 +1,887 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainView - with no todos with todos filtered by all todos should match snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="main-view"
+  >
+    <header
+      class="app-header-bar grid-container main-view__app-header-bar"
+    >
+      <div
+        class="app-header-bar__content"
+      >
+        <span
+          aria-label="Active todo count"
+          class="app-header-bar__content__todo-count"
+        >
+          0
+        </span>
+        <div
+          class="app-header-bar__content__todo-filters"
+        >
+          <button
+            aria-label="All todos"
+            class="app-header-bar__content__todo-filters__action  app-header-bar__content__todo-filters__action--is-active"
+            disabled=""
+          >
+            All
+          </button>
+          <button
+            aria-label="Open todos"
+            class="app-header-bar__content__todo-filters__action "
+          >
+            Open
+          </button>
+          <button
+            aria-label="Done todos"
+            class="app-header-bar__content__todo-filters__action "
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </header>
+    <div
+      class="main-view__container grid-container"
+    >
+      <div
+        class="add-todo-item main-view__container__add-todo-item"
+      >
+        <input
+          aria-label="Todo Item Input"
+          class="add-todo-item__input"
+          placeholder="Type a todo..."
+          type="text"
+          value=""
+        />
+        <button
+          aria-label="Submit Todo Item"
+          class="add-todo-item__submit"
+          disabled=""
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-plus fa-w-14 add-todo-item__submit__icon"
+            data-icon="plus"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="todo-items main-view__container__todo-items"
+      >
+        <span
+          aria-label="No todos message"
+          class="todo-items__no-todos-msg"
+        >
+          You have no todos
+        </span>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`MainView - with no todos with todos filtered by done todos should match snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="main-view"
+  >
+    <header
+      class="app-header-bar grid-container main-view__app-header-bar"
+    >
+      <div
+        class="app-header-bar__content"
+      >
+        <span
+          aria-label="Active todo count"
+          class="app-header-bar__content__todo-count"
+        >
+          0
+        </span>
+        <div
+          class="app-header-bar__content__todo-filters"
+        >
+          <button
+            aria-label="All todos"
+            class="app-header-bar__content__todo-filters__action "
+          >
+            All
+          </button>
+          <button
+            aria-label="Open todos"
+            class="app-header-bar__content__todo-filters__action "
+          >
+            Open
+          </button>
+          <button
+            aria-label="Done todos"
+            class="app-header-bar__content__todo-filters__action  app-header-bar__content__todo-filters__action--is-active"
+            disabled=""
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </header>
+    <div
+      class="main-view__container grid-container"
+    >
+      <div
+        class="add-todo-item main-view__container__add-todo-item"
+      >
+        <input
+          aria-label="Todo Item Input"
+          class="add-todo-item__input"
+          placeholder="Type a todo..."
+          type="text"
+          value=""
+        />
+        <button
+          aria-label="Submit Todo Item"
+          class="add-todo-item__submit"
+          disabled=""
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-plus fa-w-14 add-todo-item__submit__icon"
+            data-icon="plus"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="todo-items main-view__container__todo-items"
+      >
+        <span
+          aria-label="No todos message"
+          class="todo-items__no-todos-msg"
+        >
+          You have no todos
+        </span>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`MainView - with no todos with todos filtered by open todos should match snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="main-view"
+  >
+    <header
+      class="app-header-bar grid-container main-view__app-header-bar"
+    >
+      <div
+        class="app-header-bar__content"
+      >
+        <span
+          aria-label="Active todo count"
+          class="app-header-bar__content__todo-count"
+        >
+          0
+        </span>
+        <div
+          class="app-header-bar__content__todo-filters"
+        >
+          <button
+            aria-label="All todos"
+            class="app-header-bar__content__todo-filters__action "
+          >
+            All
+          </button>
+          <button
+            aria-label="Open todos"
+            class="app-header-bar__content__todo-filters__action  app-header-bar__content__todo-filters__action--is-active"
+            disabled=""
+          >
+            Open
+          </button>
+          <button
+            aria-label="Done todos"
+            class="app-header-bar__content__todo-filters__action "
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </header>
+    <div
+      class="main-view__container grid-container"
+    >
+      <div
+        class="add-todo-item main-view__container__add-todo-item"
+      >
+        <input
+          aria-label="Todo Item Input"
+          class="add-todo-item__input"
+          placeholder="Type a todo..."
+          type="text"
+          value=""
+        />
+        <button
+          aria-label="Submit Todo Item"
+          class="add-todo-item__submit"
+          disabled=""
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-plus fa-w-14 add-todo-item__submit__icon"
+            data-icon="plus"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="todo-items main-view__container__todo-items"
+      >
+        <span
+          aria-label="No todos message"
+          class="todo-items__no-todos-msg"
+        >
+          You have no todos
+        </span>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`MainView - with todos with todos filtered by all todos should match snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="main-view"
+  >
+    <header
+      class="app-header-bar grid-container main-view__app-header-bar"
+    >
+      <div
+        class="app-header-bar__content"
+      >
+        <span
+          aria-label="Active todo count"
+          class="app-header-bar__content__todo-count"
+        >
+          2
+        </span>
+        <div
+          class="app-header-bar__content__todo-filters"
+        >
+          <button
+            aria-label="All todos"
+            class="app-header-bar__content__todo-filters__action  app-header-bar__content__todo-filters__action--is-active"
+            disabled=""
+          >
+            All
+          </button>
+          <button
+            aria-label="Open todos"
+            class="app-header-bar__content__todo-filters__action "
+          >
+            Open
+          </button>
+          <button
+            aria-label="Done todos"
+            class="app-header-bar__content__todo-filters__action "
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </header>
+    <div
+      class="main-view__container grid-container"
+    >
+      <div
+        class="add-todo-item main-view__container__add-todo-item"
+      >
+        <input
+          aria-label="Todo Item Input"
+          class="add-todo-item__input"
+          placeholder="Type a todo..."
+          type="text"
+          value=""
+        />
+        <button
+          aria-label="Submit Todo Item"
+          class="add-todo-item__submit"
+          disabled=""
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-plus fa-w-14 add-todo-item__submit__icon"
+            data-icon="plus"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="todo-items main-view__container__todo-items"
+      >
+        <div
+          class="todo-item"
+        >
+          <label
+            class="todo-item__status"
+          >
+            <input
+              aria-label="Todo status"
+              class="todo-item__status__input"
+              type="checkbox"
+            />
+            <span
+              class="todo-item__status__indicator"
+            />
+          </label>
+          <p
+            aria-label="Todo description"
+            class="todo-item__description"
+          >
+            Test todo item 2
+          </p>
+          <label
+            class="todo-item__pin"
+          >
+            <input
+              aria-label="Pinned status"
+              checked=""
+              class="todo-item__pin__input"
+              type="checkbox"
+            />
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-star fa-w-18 todo-item__pin__indicator"
+              data-icon="star"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 576 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                fill="currentColor"
+              />
+            </svg>
+          </label>
+          <button
+            aria-label="Remove todo"
+            class="todo-item__remove"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-trash fa-w-14 "
+              data-icon="trash"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="todo-item"
+        >
+          <label
+            class="todo-item__status"
+          >
+            <input
+              aria-label="Todo status"
+              class="todo-item__status__input"
+              type="checkbox"
+            />
+            <span
+              class="todo-item__status__indicator"
+            />
+          </label>
+          <p
+            aria-label="Todo description"
+            class="todo-item__description"
+          >
+            Test todo item 1
+          </p>
+          <label
+            class="todo-item__pin"
+          >
+            <input
+              aria-label="Pinned status"
+              class="todo-item__pin__input"
+              type="checkbox"
+            />
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-star fa-w-18 todo-item__pin__indicator"
+              data-icon="star"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 576 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                fill="currentColor"
+              />
+            </svg>
+          </label>
+          <button
+            aria-label="Remove todo"
+            class="todo-item__remove"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-trash fa-w-14 "
+              data-icon="trash"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="todo-item todo-item--is-done"
+        >
+          <label
+            class="todo-item__status"
+          >
+            <input
+              aria-label="Todo status"
+              checked=""
+              class="todo-item__status__input"
+              type="checkbox"
+            />
+            <span
+              class="todo-item__status__indicator"
+            />
+          </label>
+          <p
+            aria-label="Todo description"
+            class="todo-item__description"
+          >
+            Test todo item 3
+          </p>
+          <button
+            aria-label="Remove todo"
+            class="todo-item__remove"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-trash fa-w-14 "
+              data-icon="trash"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`MainView - with todos with todos filtered by done todos should match snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="main-view"
+  >
+    <header
+      class="app-header-bar grid-container main-view__app-header-bar"
+    >
+      <div
+        class="app-header-bar__content"
+      >
+        <span
+          aria-label="Active todo count"
+          class="app-header-bar__content__todo-count"
+        >
+          2
+        </span>
+        <div
+          class="app-header-bar__content__todo-filters"
+        >
+          <button
+            aria-label="All todos"
+            class="app-header-bar__content__todo-filters__action "
+          >
+            All
+          </button>
+          <button
+            aria-label="Open todos"
+            class="app-header-bar__content__todo-filters__action "
+          >
+            Open
+          </button>
+          <button
+            aria-label="Done todos"
+            class="app-header-bar__content__todo-filters__action  app-header-bar__content__todo-filters__action--is-active"
+            disabled=""
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </header>
+    <div
+      class="main-view__container grid-container"
+    >
+      <div
+        class="add-todo-item main-view__container__add-todo-item"
+      >
+        <input
+          aria-label="Todo Item Input"
+          class="add-todo-item__input"
+          placeholder="Type a todo..."
+          type="text"
+          value=""
+        />
+        <button
+          aria-label="Submit Todo Item"
+          class="add-todo-item__submit"
+          disabled=""
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-plus fa-w-14 add-todo-item__submit__icon"
+            data-icon="plus"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="todo-items main-view__container__todo-items"
+      >
+        <div
+          class="todo-item todo-item--is-done"
+        >
+          <label
+            class="todo-item__status"
+          >
+            <input
+              aria-label="Todo status"
+              checked=""
+              class="todo-item__status__input"
+              type="checkbox"
+            />
+            <span
+              class="todo-item__status__indicator"
+            />
+          </label>
+          <p
+            aria-label="Todo description"
+            class="todo-item__description"
+          >
+            Test todo item 3
+          </p>
+          <button
+            aria-label="Remove todo"
+            class="todo-item__remove"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-trash fa-w-14 "
+              data-icon="trash"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`MainView - with todos with todos filtered by open todos should match snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="main-view"
+  >
+    <header
+      class="app-header-bar grid-container main-view__app-header-bar"
+    >
+      <div
+        class="app-header-bar__content"
+      >
+        <span
+          aria-label="Active todo count"
+          class="app-header-bar__content__todo-count"
+        >
+          2
+        </span>
+        <div
+          class="app-header-bar__content__todo-filters"
+        >
+          <button
+            aria-label="All todos"
+            class="app-header-bar__content__todo-filters__action "
+          >
+            All
+          </button>
+          <button
+            aria-label="Open todos"
+            class="app-header-bar__content__todo-filters__action  app-header-bar__content__todo-filters__action--is-active"
+            disabled=""
+          >
+            Open
+          </button>
+          <button
+            aria-label="Done todos"
+            class="app-header-bar__content__todo-filters__action "
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </header>
+    <div
+      class="main-view__container grid-container"
+    >
+      <div
+        class="add-todo-item main-view__container__add-todo-item"
+      >
+        <input
+          aria-label="Todo Item Input"
+          class="add-todo-item__input"
+          placeholder="Type a todo..."
+          type="text"
+          value=""
+        />
+        <button
+          aria-label="Submit Todo Item"
+          class="add-todo-item__submit"
+          disabled=""
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-plus fa-w-14 add-todo-item__submit__icon"
+            data-icon="plus"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="todo-items main-view__container__todo-items"
+      >
+        <div
+          class="todo-item"
+        >
+          <label
+            class="todo-item__status"
+          >
+            <input
+              aria-label="Todo status"
+              class="todo-item__status__input"
+              type="checkbox"
+            />
+            <span
+              class="todo-item__status__indicator"
+            />
+          </label>
+          <p
+            aria-label="Todo description"
+            class="todo-item__description"
+          >
+            Test todo item 2
+          </p>
+          <label
+            class="todo-item__pin"
+          >
+            <input
+              aria-label="Pinned status"
+              checked=""
+              class="todo-item__pin__input"
+              type="checkbox"
+            />
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-star fa-w-18 todo-item__pin__indicator"
+              data-icon="star"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 576 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                fill="currentColor"
+              />
+            </svg>
+          </label>
+          <button
+            aria-label="Remove todo"
+            class="todo-item__remove"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-trash fa-w-14 "
+              data-icon="trash"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="todo-item"
+        >
+          <label
+            class="todo-item__status"
+          >
+            <input
+              aria-label="Todo status"
+              class="todo-item__status__input"
+              type="checkbox"
+            />
+            <span
+              class="todo-item__status__indicator"
+            />
+          </label>
+          <p
+            aria-label="Todo description"
+            class="todo-item__description"
+          >
+            Test todo item 1
+          </p>
+          <label
+            class="todo-item__pin"
+          >
+            <input
+              aria-label="Pinned status"
+              class="todo-item__pin__input"
+              type="checkbox"
+            />
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-star fa-w-18 todo-item__pin__indicator"
+              data-icon="star"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 576 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                fill="currentColor"
+              />
+            </svg>
+          </label>
+          <button
+            aria-label="Remove todo"
+            class="todo-item__remove"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-trash fa-w-14 "
+              data-icon="trash"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

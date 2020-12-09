@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import cn from "classnames";
 import { useTodoAppStore } from "../../store/todo-app-store";
 import { TodoItem } from "../todo-item";
+import "./todo-items.scss";
 
 const TodoItems = ({ classes, testId }) => {
   const {
@@ -10,38 +11,55 @@ const TodoItems = ({ classes, testId }) => {
     actions: { toggleTaskStatus, toggleTaskPin, removeTodo },
   } = useTodoAppStore();
 
-  const processTodos = useMemo(() => {
+  const processedTodos = useMemo(() => {
     if (!state.todos.length) {
       return state.todos;
     }
 
-    if (state.filter === "DONE")
+    if (state.filter === "DONE") {
       return [...state.todos.filter((todo) => todo.done)];
+    }
 
     const orderedTodos = [
       ...state.todos.filter((todo) => todo.pinned),
       ...state.todos.filter((todo) => !todo.pinned),
     ];
 
-    if (state.filter === "ALL") return orderedTodos;
-    if (state.filter === "OPEN")
+    if (state.filter === "ALL") {
+      return orderedTodos;
+    }
+
+    if (state.filter === "OPEN") {
       return orderedTodos.filter((todo) => !todo.done);
+    }
   }, [state.filter, state.todos]);
+
+  const outputTodos = () => {
+    return processedTodos.map((todo) => (
+      <TodoItem
+        key={todo.id}
+        id={todo.id}
+        onDoneChange={() => toggleTaskStatus(todo.id)}
+        onPinnedChange={() => toggleTaskPin(todo.id)}
+        onRemoveTodoClick={() => removeTodo(todo.id)}
+        description={todo.description}
+        pinned={todo.pinned}
+        done={todo.done}
+      />
+    ));
+  };
+
+  const outputNoTodosMessage = () => {
+    return (
+      <span className="todo-items__no-todos-msg" aria-label="No todos message">
+        You have no todos
+      </span>
+    );
+  };
 
   return (
     <div className={cn("todo-items", classes)} data-testid={testId}>
-      {processTodos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          id={todo.id}
-          onDoneChange={() => toggleTaskStatus(todo.id)}
-          onPinnedChange={() => toggleTaskPin(todo.id)}
-          onRemoveTodoClick={() => removeTodo(todo.id)}
-          description={todo.description}
-          pinned={todo.pinned}
-          done={todo.done}
-        />
-      ))}
+      {processedTodos.length ? outputTodos() : outputNoTodosMessage()}
     </div>
   );
 };

@@ -1,12 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
-import { useTodoAppStateContext } from "../../store/todo-app-context";
+import { useTodoAppStore } from "../../store/todo-app-store";
 import "./app-header-bar.scss";
 
 const AppHeaderBar = ({ classes, testId }) => {
-  const { todos } = useTodoAppStateContext();
-  const todoCount = todos.length <= 100 ? todos.length : "100+";
+  const {
+    state: { todos, filter },
+    actions: { setTasksFilter },
+  } = useTodoAppStore();
+
+  const openTodos = todos.filter((todo) => !todo.done);
+  const todoCount = openTodos.length <= 100 ? openTodos.length : "100+";
 
   return (
     <header
@@ -14,13 +19,47 @@ const AppHeaderBar = ({ classes, testId }) => {
       data-testid={testId}
     >
       <div className="app-header-bar__content">
-        <h1 className="app-header-bar__content__title">Todos</h1>
         <span
           aria-label="Active todo count"
           className="app-header-bar__content__todo-count"
         >
           {todoCount}
         </span>
+        <div className="app-header-bar__content__todo-filters">
+          <button
+            className={cn("app-header-bar__content__todo-filters__action ", {
+              "app-header-bar__content__todo-filters__action--is-active":
+                filter === "ALL",
+            })}
+            aria-label="All todos"
+            disabled={filter === "ALL" ? true : false}
+            onClick={() => setTasksFilter("ALL")}
+          >
+            All
+          </button>
+          <button
+            className={cn("app-header-bar__content__todo-filters__action ", {
+              "app-header-bar__content__todo-filters__action--is-active":
+                filter === "OPEN",
+            })}
+            aria-label="Open todos"
+            disabled={filter === "OPEN" ? true : false}
+            onClick={() => setTasksFilter("OPEN")}
+          >
+            Open
+          </button>
+          <button
+            className={cn("app-header-bar__content__todo-filters__action ", {
+              "app-header-bar__content__todo-filters__action--is-active":
+                filter === "DONE",
+            })}
+            aria-label="Done todos"
+            disabled={filter === "DONE" ? true : false}
+            onClick={() => setTasksFilter("DONE")}
+          >
+            Done
+          </button>
+        </div>
       </div>
     </header>
   );

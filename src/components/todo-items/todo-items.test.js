@@ -150,6 +150,12 @@ describe("TodoItems - with no todos", () => {
   it("Should not display any todo items", () => {
     expect(screen.queryAllByLabelText("Todo description")).toHaveLength(0);
   });
+
+  it("should display feedback to the user that there are no todos", () => {
+    expect(screen.getByLabelText("No todos message")).toHaveTextContent(
+      /^You have no todos$/
+    );
+  });
 });
 
 describe("TodoItems - User actions", () => {
